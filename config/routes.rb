@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
   devise_for :user
 
-  devise_scope :user do
-    root to: "devise/sessions#new"
-  end
+  root to: "pages#landing"
 
   resources :days, only: [:create, :index, :show, :update] do
     resources :tasks, only: [:create, :update]
