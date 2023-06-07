@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :tasks, only: [:create, :update]
   end
 
-  resources :tasks, only: [:delete]
+  resources :tasks, only: [:destroy]
 
-  resources :categories, only: [:create, :update, :delete]
+  resources :categories, only: [:create, :update, :destroy]
 end

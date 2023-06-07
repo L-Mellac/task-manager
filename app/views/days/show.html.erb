@@ -1,2 +1,30 @@
 <h1>Days#show</h1>
 <p>Find me in app/views/days/show.html.erb</p>
+
+<div class="container-center-dark">
+  <h2 class="form-title">Add a new Task</h2>
+  <%= simple_form_for [@day, @task] do |f| %>
+  <div class="form-transparent">
+    <%= f.input :description %>
+    <%= f.button :submit, class: "form-button" %>
+  </div>
+  <% end %>
+</div>
+
+<ul> Lists of Tasks
+  <%@day.tasks.each do |task|  %>
+    <li><%= task.description %>
+    <%= button_to "Delete", task_path(task), method: :delete, class: "btn btn-danger mb-2" %></li>
+  <% end %>
+</ul>
+
+<div class="container-center-dark">
+  <h2 class="form-title">Add a new Category</h2>
+  <%= simple_form_for [@category] do |f| %>
+  <div class="form-transparent">
+    <%= f.input :name %>
+    <%= f.input :day, :as => :hidden, :input_html => { :value =>  @day.id } %>
+    <%= f.button :submit, class: "form-button" %>
+  </div>
+  <% end %>
+</div>
