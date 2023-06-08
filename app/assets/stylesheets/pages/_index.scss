@@ -1,3 +1,5 @@
+@import "landing_page";
+
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -20,5 +22,3 @@
   background-size: cover;
   background-position: center;
 }
-
-@import "landing_page";
