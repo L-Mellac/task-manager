@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   root to: "pages#landing"
 
+  # get 'generate_days', to: 'days#generate_days', as: :generate_days
   resources :days, only: [:create, :index, :show, :update] do
     resources :tasks, only: [:create, :update]
   end

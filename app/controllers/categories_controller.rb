@@ -16,13 +16,11 @@ class CategoriesController < ApplicationController
   def update
     @category = Category.find(params[:id])
     @category.update(category_params)
-    redirect_to #today
   end
 
   def delete
     @category = Category.find(params[:id])
     @category.destroy
-    redirect_to #today
   end
 
   private

@@ -24,7 +24,7 @@
 </div>
 
 
-<div class="container-center-dark">
+<div class="container-center-dark", id="hello">
   <h3 class="form-title">Add a new Category</h3>
   <%= simple_form_for [@category] do |f| %>
   <div class="form-transparent">
@@ -34,3 +34,13 @@
   </div>
   <% end %>
 </div>
+
+
+<%# <script>
+ const button = document.getElementById("hello");
+ button.addEventListener("load", event => {
+  // event.preventDefault();
+  fetch('/days', {method: 'post'})
+  console.log('clicked login button, sending POST....');
+ })
+</script> %>
