@@ -1,4 +1,30 @@
-<a href="/users/sign_up">Get Started</a>
+
+<div id="menu" data-controller="template">
+  <div id="menu-bar" data-action="click->hamburger#expandMenu" data-hamburger-target="menu-bar">
+    <div id="bar1" class="bar"></div>
+    <div id="bar2" class="bar"></div>
+    <div id="bar3" class="bar"></div>
+  </div>
+
+  <nav class="nav" id="nav">
+    <ul>
+      <li><a href="#">sign in</a></li>
+      <li><a href="#">log in</a></li>
+    </ul>
+  </nav>
+
+  <nav class="nav" id="nav" data-hamburger-target="nav">
+    <ul>
+      <li><a href="#">sign in</a></li>
+      <li><a href="#">log in</a></li>
+    </ul>
+  </nav>
+  <div class="menu-bg" id="menu-bg" data-hamburger-target="menu-bg"></div>
+
+</div>
+
+
+
 <div class="circle one"></div>
 <div class="circle two"></div>
 <div class="circle three"></div>
@@ -8,6 +34,7 @@
   <h1 class="heading">focus.</h1>
 </div>
 
+
 <div class="landing_text">
-  <p class="text">Welcome to focus.<br> A simple, beautiful and <br> fun task manager to <br> customise your daily tasks.</p>
+  <p class="text"> A fun & simple way <br> to customise <br> your daily tasks.</p>
 </div>
