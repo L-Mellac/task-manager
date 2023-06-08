@@ -1,6 +1,16 @@
 class DaysController < ApplicationController
   def create
 
+
+
+    @day = Day.new(user_id: current_user.id, created_at: Time.zone.now)
+    if @day.save
+      flash[:notice] = "Today has been created!"
+    else
+      flash[:alert] = "Failed to create day:("
+    end
+
+
   end
 
   def index
