@@ -1,0 +1,39 @@
+
+.circle {
+  border-radius: 100%;
+  position: fixed;
+  top: -50vh;
+  left: -50vh;
+
+  &.one {
+    opacity: 75%;
+    width: 100vh;
+    height: 100vh;
+    z-index: -1;
+    background-color:#EDFCFB;
+  }
+
+  &.two {
+    opacity: 50%;
+    width: 120vh;
+    height: 120vh;
+    z-index: -3;
+    background-color:#EDFCFB;
+  }
+
+  &.three {
+    opacity: 40%;
+    width: 140vh;
+    height: 140vh;
+    z-index: -4;
+    background-color:#EDFCFB;
+  }
+
+  &.four {
+    opacity: 20%;
+    width: 162vh;
+    height: 155vh;
+    z-index: -5;
+    background-color:#EDFCFB;
+  }
+}

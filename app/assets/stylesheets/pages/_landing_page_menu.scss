@@ -1,0 +1,101 @@
+body {
+  font-family:AmstelvarAlpha;
+}
+
+#menu {
+  z-index: 2
+}
+
+#menu-bar {
+  width: 50px;
+  height: 40px;
+  margin: 30px 0 20px 20px;
+  cursor: pointer;
+}
+
+.bar {
+  width: 80px;
+  height: 12%;
+  background-color: black;
+  display: block;
+  border-radius: 25px;
+  transition: 0.3s ease;
+  rotate: -30deg;
+}
+
+#bar1 {
+  transform: translateY(-8px);
+}
+
+#bar3 {
+  transform: translateY(8px);
+}
+
+.nav {
+  display: none;
+  transition: 0.3s ease;
+}
+
+.nav ul {
+  padding: 0 22px;
+}
+
+.nav ul li {
+  list-style: none;
+  padding: 12px 0;
+}
+
+.nav li a {
+  color: black;
+  font-size: 40px;
+  text-decoration: none;
+}
+
+.nav li a:hover {
+  font-weight: bold;
+}
+
+.menu-bg, #menu {
+  top: 12%;
+  left: 10%;
+  position: absolute;
+}
+
+.menu-bg {
+  width: 0;
+  height: 0;
+  background-color: radial-gradient(circle, #81EBE0);
+  z-index: 1;
+  border-radius: 50%;
+  transition: 0.3s ease;
+  margin: 30px 0 20px 20px;
+  border-radius: 50%;
+}
+
+.change {
+  display: block;
+}
+
+.change .bar {
+  background-color: black;
+}
+
+.change #bar1 {
+  transform: translateY(4px) rotateZ(-45deg);
+}
+
+.change #bar2 {
+  opacity: 0;
+}
+
+.change #bar3 {
+  transform: translateY(-6px) rotateZ(45deg);
+}
+
+.change-bg {
+  width: 880px;
+  height: 920px;
+  transform: translate(-60%, -60%);
+  background-color: #81EBE0;
+  opacity: 75%;
+}
