@@ -1,24 +1,6 @@
 @import "landing_page";
+@import "progress";
 
-.cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-gap: 16px;
-}
 
-.container {
-  background-color: #81EBE0;
-  width: 100%;
-}
 
-.progress {
-  position:absolute
-}
 
-.card-circle {
-  height: 70px;
-  width: 70px;
-  border-radius: 50%;
-  background-size: cover;
-  background-position: center;
-}
