@@ -1,0 +1,19 @@
+.search-bar {
+  float: right;
+
+  .form-control {
+    width: 30%;
+  }
+
+  .btn {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+.days-container {
+  .cards a {
+    text-decoration: none;
+    color: white;
+  }
+}
