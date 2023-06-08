@@ -19,10 +19,18 @@
       </select>
   </div>
 
-  <div class=""[SEARCH - TOP RIGHT]>
+  <div class="search-bar"[SEARCH - TOP RIGHT]>
+    <%= form_with url: days_path, method: :get, class: "d-flex" do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Search"
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
   </div>
 
-  <div class=""[CIRCLED HIGHLIGHTS - MIDDLE]>
+  <div class="days-container"[CIRCLED HIGHLIGHTS - MIDDLE]>
     <div class="cards">
       <% @days.each do |day| %>
         <%= link_to day_path(day) do %>
