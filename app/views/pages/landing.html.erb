@@ -1,1 +1,40 @@
-<h1>This is our amazing landing page</h1>
+
+<div id="menu" data-controller="hamburger">
+
+  <div id="menu-bar" data-action="click->hamburger#expandMenu" data-hamburger-target="menubar">
+    <div id="bar1" class="bar"></div>
+    <div id="bar2" class="bar"></div>
+    <div id="bar3" class="bar"></div>
+  </div>
+
+  <nav class="nav" id="nav" data-hamburger-target="nav">
+    <ul>
+      <li><a href="#">log in</a></li>
+      <li><a href="#">sign in</a></li>
+    </ul>
+  </nav>
+
+  <nav class="nav" id="nav">
+    <ul>
+      <li><a href="#">log in</a></li>
+      <li><a href="#">sign in</a></li>
+    </ul>
+  </nav>
+
+  <div class="menu-bg" id="menu-bg" data-hamburger-target="menubg"></div>
+
+</div>
+
+<div class="circle one"></div>
+<div class="circle two"></div>
+<div class="circle three"></div>
+<div class="circle four"></div>
+
+<div class="landing_container">
+  <h1 class="heading">focus.</h1>
+</div>
+
+
+<div class="landing_text">
+  <p class="text"> A fun & simple way <br> to customise <br> your daily tasks.</p>
+</div>

@@ -1,8 +1,20 @@
-<h1>Days#show</h1>
-<p>Find me in app/views/days/show.html.erb</p>
+<div>
+  <h1>Today</h1>
+  <p>-date-</p>
+</div>
 
 <div class="container-center-dark">
-  <h2 class="form-title">Add a new Task</h2>
+<h3>Lists of Tasks</h3>
+  <ul>
+    <%@day.tasks.each do |task|  %>
+      <li><%= task.description %>
+    <%= button_to "Delete", task_path(task), method: :delete, class: "btn btn-danger mb-2" %></li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="container-center-dark">
+  <h3 class="form-title">Add a new Task</h2>
   <%= simple_form_for [@day, @task] do |f| %>
   <div class="form-transparent">
     <%= f.input :description %>
@@ -11,15 +23,9 @@
   <% end %>
 </div>
 
-<ul> Lists of Tasks
-  <%@day.tasks.each do |task|  %>
-    <li><%= task.description %>
-    <%= button_to "Delete", task_path(task), method: :delete, class: "btn btn-danger mb-2" %></li>
-  <% end %>
-</ul>
 
-<div class="container-center-dark">
-  <h2 class="form-title">Add a new Category</h2>
+<div class="container-center-dark", id="hello">
+  <h3 class="form-title">Add a new Category</h3>
   <%= simple_form_for [@category] do |f| %>
   <div class="form-transparent">
     <%= f.input :name %>
@@ -28,3 +34,13 @@
   </div>
   <% end %>
 </div>
+
+
+<%# <script>
+ const button = document.getElementById("hello");
+ button.addEventListener("load", event => {
+  // event.preventDefault();
+  fetch('/days', {method: 'post'})
+  console.log('clicked login button, sending POST....');
+ })
+</script> %>
