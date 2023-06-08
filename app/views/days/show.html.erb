@@ -28,33 +28,39 @@
 
 <div class="highlight-and-name-container">
   <div class="highlight"></div>
-  <h2>-date-</h2>
-  <h1>Today</h1>
+  <h2><%= Date.today() %></h2>
+  <h1>today.</h1>
 </div>
 
 <div class="tasks-container">
+
   <form action=<%="/days/#{@day.id}/tasks"%> method="post" name="task">
     <input type="text" name="task[description]" placeholder="add a new task">
     <input type="hidden" name="authenticity_token", value="<%= form_authenticity_token %>">
   </form>
+
   <% @day.tasks.each do |task| %>
-    <form action=<%="/tasks/#{task.id}"%> method="patch" class="task">
-      <select name="task[category_id]">
-        <% if task.category.nil? %>
-          <option> </option>
-        <% else %>
-          <option value="<%= task.category.id %>"><%= task.category.name %></option>
-        <% end %>
-        <% @categories.each do |category| %>
-          <option value="<%= category.id %>"><%= category.name %></option>
-        <% end %>
-      </select>
-      <input type="text" name="task[description]" value="<%=task.description%>">
-      <input type="checkbox" name="task[completed]" value="<%=task.completed%>">
-      <input type="hidden" name="day" value="<%=@day.id%>">
-      <input type="hidden" name="authenticity_token", value="<%= form_authenticity_token %>">
-      <%= csrf_meta_tags %>
-    </form>
-    <%= button_to "Delete", task_path(task), method: :delete, class: "btn btn-danger mb-2" %></li>
-  <% end %>
+    <div class="task">'
+      <form action=<%="/tasks/#{task.id}"%> method="patch">
+        <select name="task[category_id]">
+          <% if task.category.nil? %>
+            <option> </option>
+          <% else %>
+            <option value="<%= task.category.id %>"><%= task.category.name %></option>
+          <% end %>
+          <% @categories.each do |category| %>
+            <option value="<%= category.id %>"><%= category.name %></option>
+          <% end %>
+        </select>
+
+        <input type="text" name="task[description]" value="<%=task.description%>">
+
+        <input type="checkbox" name="task[completed]" value="<%=task.completed%>">
+
+        <input type="hidden" name="day" value="<%=@day.id%>">
+        <input type="hidden" name="authenticity_token", value="<%= form_authenticity_token %>">
+      </form>
+      <%= button_to "Delete", task_path(task), method: :delete %>
+    </div>
+    <% end %>
 </div>
