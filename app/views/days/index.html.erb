@@ -1,9 +1,37 @@
-<h1>Progress</h1>
-
- <ul>
-    <%@days.each do |day|  %>
-      <li> <%= day.name %> - <%= day.created_at %> </li>
-    <% end %>
- </ul>
+<%# <h1>Days#index</h1>
+<p>Find me in app/views/days/index.html.erb</p> %>
+<div class="container">
 
 
+  <%# [DROP DOWN MENU - TOP LEFT] %>
+  <div class="drop-down-menu">
+    <label for="drop-down-menu"></label>
+      <select name="drop-down-menu" id="drop-down-menu">
+        <option value="week-view">week view</option>
+        <option value="week-view">customize</option>
+        <option value="week-view">today</option>
+      </select>
+  </div>
+
+  <div class=""[SEARCH - TOP RIGHT]>
+  </div>
+
+  <div class=""[CIRCLED HIGHLIGHTS - MIDDLE]>
+    <div class="cards">
+      <% @days.each do |day| %>
+        <%= link_to day_path(day) do %>
+          <div class="card-circle" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+            <%= day.highlight %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class=""[H1 WITH DOT - BOTTOM LEFT]>
+  <h1>progress.</div>
+
+  <%# <div class="container"[4 ARCS - FROM BOTTOM LEFT - (GOES TOP LEFT ON CLICK OF DROP DOWN MENU - JAVASCRIPT)]>
+  </div> %>
+
+</div>
