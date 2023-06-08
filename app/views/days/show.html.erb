@@ -1,46 +1,60 @@
-<div>
+<div class="navbar">
+  <div id="menu" data-controller="hamburger">
+
+  <div id="menu-bar" data-action="click->hamburger#expandMenu" data-hamburger-target="menubar">
+    <div id="bar1" class="bar"></div>
+    <div id="bar2" class="bar"></div>
+    <div id="bar3" class="bar"></div>
+  </div>
+
+  <nav class="nav" id="nav" data-hamburger-target="nav">
+    <ul>
+      <li><a href="#">log in</a></li>
+      <li><a href="#">sign in</a></li>
+    </ul>
+  </nav>
+
+  <nav class="nav" id="nav">
+    <ul>
+      <li><a href="#">log in</a></li>
+      <li><a href="#">sign in</a></li>
+    </ul>
+  </nav>
+
+  <div class="menu-bg" id="menu-bg" data-hamburger-target="menubg"></div>
+
+  </div>
+</div>
+
+<div class="highlight-and-name-container">
+  <div class="highlight"></div>
+  <h2>-date-</h2>
   <h1>Today</h1>
-  <p>-date-</p>
 </div>
 
-<div class="container-center-dark">
-<h3>Lists of Tasks</h3>
-  <ul>
-    <%@day.tasks.each do |task|  %>
-      <li><%= task.description %>
+<div class="tasks-container">
+  <form action=<%="/days/#{@day.id}/tasks"%> method="post" name="task">
+    <input type="text" name="task[description]" placeholder="add a new task">
+    <input type="hidden" name="authenticity_token", value="<%= form_authenticity_token %>">
+  </form>
+  <% @day.tasks.each do |task| %>
+    <form action=<%="/tasks/#{task.id}"%> method="patch" class="task">
+      <select name="task[category_id]">
+        <% if task.category.nil? %>
+          <option> </option>
+        <% else %>
+          <option value="<%= task.category.id %>"><%= task.category.name %></option>
+        <% end %>
+        <% @categories.each do |category| %>
+          <option value="<%= category.id %>"><%= category.name %></option>
+        <% end %>
+      </select>
+      <input type="text" name="task[description]" value="<%=task.description%>">
+      <input type="checkbox" name="task[completed]" value="<%=task.completed%>">
+      <input type="hidden" name="day" value="<%=@day.id%>">
+      <input type="hidden" name="authenticity_token", value="<%= form_authenticity_token %>">
+      <%= csrf_meta_tags %>
+    </form>
     <%= button_to "Delete", task_path(task), method: :delete, class: "btn btn-danger mb-2" %></li>
-    <% end %>
-  </ul>
-</div>
-
-<div class="container-center-dark">
-  <h3 class="form-title">Add a new Task</h2>
-  <%= simple_form_for [@day, @task] do |f| %>
-  <div class="form-transparent">
-    <%= f.input :description %>
-    <%= f.button :submit, class: "form-button" %>
-  </div>
   <% end %>
 </div>
-
-
-<div class="container-center-dark", id="hello">
-  <h3 class="form-title">Add a new Category</h3>
-  <%= simple_form_for [@category] do |f| %>
-  <div class="form-transparent">
-    <%= f.input :name %>
-    <%= f.input :day, :as => :hidden, :input_html => { :value =>  @day.id } %>
-    <%= f.button :submit, class: "form-button" %>
-  </div>
-  <% end %>
-</div>
-
-
-<%# <script>
- const button = document.getElementById("hello");
- button.addEventListener("load", event => {
-  // event.preventDefault();
-  fetch('/days', {method: 'post'})
-  console.log('clicked login button, sending POST....');
- })
-</script> %>

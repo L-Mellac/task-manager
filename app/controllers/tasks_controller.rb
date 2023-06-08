@@ -21,12 +21,11 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     @task.destroy
     redirect_to day_path(@task.day)
-
   end
 
   private
 
   def task_params
-    params.require(:task).permit(:description, :priority)
+    params.require(:task).permit(:description, :priority, :category_id)
   end
 end
