@@ -1,15 +1,39 @@
 <%# <h1>Days#index</h1>
 <p>Find me in app/views/days/index.html.erb</p> %>
 <div class="container">
-  <div class="circle one"></div>
-  <div class="circle two"></div>
-  <div class="circle three"></div>
-  <div class="circle four"></div>
 
+  <div id="menu" data-controller="hamburger">
 
+    <div id="menu-bar" data-action="click->hamburger#expandMenu" data-hamburger-target="menubar">
+      <div id="bar1" class="bar"></div>
+      <div id="bar2" class="bar"></div>
+      <div id="bar3" class="bar"></div>
+    </div>
 
+    <nav class="nav" id="nav" data-hamburger-target="nav">
+      <ul>
+        <li><a href="#">today</a></li>
+        <li><a href="#">week</a></li>
+      </ul>
+    </nav>
 
-  <%# [DROP DOWN MENU - TOP LEFT] %>
+    <nav class="nav" id="nav">
+      <ul>
+        <li><a href="#">today</a></li>
+        <li><a href="#">week</a></li>
+      </ul>
+    </nav>
+
+    <div class="menu-bg" id="menu-bg" data-hamburger-target="menubg"></div>
+
+  </div>
+
+  <div class="progress-circle one"></div>
+  <div class="progress-circle two"></div>
+  <div class="progress-circle three"></div>
+  <div class="progress-circle four"></div>
+
+  <%# [DROP DOWN MENU - TOP LEFT]
   <div class="drop-down-menu">
     <label for="drop-down-menu"></label>
       <select name="drop-down-menu" id="drop-down-menu">
@@ -17,7 +41,7 @@
         <option value="week-view">customize</option>
         <option value="week-view">today</option>
       </select>
-  </div>
+  </div> %>
 
   <div class="search-bar"[SEARCH - TOP RIGHT]>
     <%= form_with url: days_path, method: :get, class: "d-flex" do %>
@@ -29,6 +53,7 @@
     <%= submit_tag "Search", class: "btn btn-primary" %>
     <% end %>
   </div>
+
 
   <div class="days-container"[CIRCLED HIGHLIGHTS - MIDDLE]>
     <div class="cards">

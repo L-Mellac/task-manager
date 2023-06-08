@@ -1,11 +1,24 @@
+// .days-container{
+//   display: flex;
+//   justify-content: center;
+//   margin-left: 25%;
+//   margin-top: 15%;
+// }
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-gap: 16px;
+  grid-gap: 25px;
+}
+
+.card-circle {
+  height: 140px;
+  width: 140px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
 }
 
 .container {
-  background-color: #81EBE0;
   width: 100%;
 }
 
@@ -13,8 +26,8 @@
   position:absolute;
   left: 0%;
   right: 2.37%;
-  top: 0%;
-  bottom: 18.75%;
+  top: 65%;
+  bottom: 0%;
   font-family: 'AmstelvarAlpha';
   font-style: normal;
   font-weight: 400;
@@ -25,18 +38,11 @@
   color: #062321;
 }
 
-.card-circle {
-  height: 70px;
-  width: 70px;
-  border-radius: 50%;
-  background-size: cover;
-  background-position: center;
-}
 
-.circle {
+.progress-circle {
   border-radius: 100%;
   position: fixed;
-  top: -50vh;
+  bottom: -50vh;
   left: -50vh;
 
   &.one {
