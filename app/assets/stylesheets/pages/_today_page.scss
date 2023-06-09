@@ -84,6 +84,11 @@
     width: 8em;
     margin-left: 0 !important;
   }
+
+  .category-btn {
+    background-color: $transparent;
+    border: none;
+  }
 }
 
 .task {
@@ -118,7 +123,7 @@
     border: none;
   }
 
-  button {
+  .checkmark {
     background-color: $transparent;
     border-style: solid;
     border-color: $turquoise_shade;
