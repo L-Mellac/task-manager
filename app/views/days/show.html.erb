@@ -1,36 +1,20 @@
-<div class="navbar">
-  <div id="menu" data-controller="hamburger">
+<div class="navbar" data-controller="hotdog-navigation" data-action="click->hotdog-navigation#toggleMenu">
 
-  <div id="menu-bar" data-action="click->hamburger#expandMenu" data-hamburger-target="menubar">
-    <div id="bar1" class="bar"></div>
-    <div id="bar2" class="bar"></div>
-    <div id="bar3" class="bar"></div>
+  <div id="hotdog-menu" data-hotdog-navigation-target="threeBars">
+    <div class="bar-top"></div>
+    <div class="bar-long"></div>
+    <div class="bar-bottom"></div>
   </div>
 
-  <nav class="nav" id="nav" data-hamburger-target="nav">
-    <ul>
-      <li><a href="#">log in</a></li>
-      <li><a href="#">sign in</a></li>
-    </ul>
-  </nav>
+  <a href="/days" class="option-1 hidden" data-hotdog-navigation-target="progressLink">progress</a>
+  <a class="option-2 hidden" data-hotdog-navigation-target="customizeLink">customize</a>
 
-  <nav class="nav" id="nav">
-    <ul>
-      <li><a href="#">log in</a></li>
-      <li><a href="#">sign in</a></li>
-    </ul>
-  </nav>
-
-  <div class="menu-bg" id="menu-bg" data-hamburger-target="menubg"></div>
-
+  <div class="circle-today">
+    <div class="circle-today one" data-hotdog-navigation-target="circle1"></div>
+    <div class="circle-today two" data-hotdog-navigation-target="circle2"></div>
+    <div class="circle-today three" data-hotdog-navigation-target="circle3"></div>
+    <div class="circle-today four" data-hotdog-navigation-target="circle4"></div>
   </div>
-</div>
-
-<div class="circle-today">
-  <div class="circle-today one"></div>
-  <div class="circle-today two"></div>
-  <div class="circle-today three"></div>
-  <div class="circle-today four"></div>
 </div>
 
 <div class="today-page-container">
@@ -50,8 +34,21 @@
     </form>
 
     <% @day.tasks.each do |task| %>
-      <div class="task">
+      <div class="task" data-controller="task-update">
+        <div class="categories hidden" data-task-update-target="categoriesPopup">
+          <% @categories.each do |category| %>
+            <p><%= category.name %></p>
+          <% end %>
+          <form action="/categories" method="post" data-task0upda>
+            <input type="text" placeholder="+ new category" name="category[name]">
+            <input type="hidden" name="day" value="<%=@day.id%>">
+            <input type="hidden" name="authenticity_token", value="<%= form_authenticity_token %>">
+          </form>
+        </div>
+
         <form action=<%="/tasks/#{task.id}"%> method="patch">
+          <div class="category" data-action="click->task-update#toggleCategoriesPopup"><%= task.category.name.first unless task.category.nil? %></div>
+        <!--
           <select name="task[category_id]">
             <% if task.category.nil? %>
               <option> </option>
@@ -62,12 +59,13 @@
               <option value="<%= category.id %>"><%= category.name.first %></option>
             <% end %>
           </select>
+        -->
+
 
           <input type="text" name="task[description]" value="<%=task.description%>">
 
           <input type="button" name="task[completed]" value="">
 
-          <input type="hidden" name="day" value="<%=@day.id%>">
           <input type="hidden" name="authenticity_token", value="<%= form_authenticity_token %>">
         </form>
         <%= button_to "x", task_path(task), method: :delete %>

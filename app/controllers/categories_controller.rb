@@ -4,12 +4,12 @@ class CategoriesController < ApplicationController
     @category.user = current_user
     # @user = User.find(params[:user_id])
     # @category.user = @user
-    @day = Day.find(params[:category][:day].to_i)
+    day = Day.find(params[:day].to_i)
     if @category.save
       flash[:alert] = "Category Created!"
-      redirect_to day_path(@day)
+      redirect_to day_path(day)
     else
-      render "days/show", status: :unprocessable_entity
+      render "days/#{day.id}", status: :unprocessable_entity
     end
   end
 
