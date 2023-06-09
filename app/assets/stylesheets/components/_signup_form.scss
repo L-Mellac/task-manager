@@ -1,10 +1,9 @@
-
 /* id */
-#login-form {
+#signup-form {
   display: none;
 }
 
-.login {
+.signup {
 
   /* html main element*/
   main {
@@ -42,10 +41,11 @@
   /* submit button hover */
   input[type="submit"]:hover
   {
-    background: black;
+    background: #062321;
     transition:all .15s ease-in-out;
     cursor: pointer;
   }
+
 
   /* the whole circle */
   form {
