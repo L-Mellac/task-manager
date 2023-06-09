@@ -132,7 +132,7 @@
     width: 2em;
     height: 2em;
 
-    .done {
+    &.done {
       background-color: $turquoise_shade
     }
   }
