@@ -1,0 +1,44 @@
+.progress-circle {
+  border-radius: 100%;
+  position: fixed;
+
+  &.one {
+    opacity: 75%;
+    width: 50vh;
+    height: 50vh;
+    bottom: -25vh;
+    left: -25vh;
+    z-index: -1;
+    background-color:#EDFCFB;
+  }
+
+  &.two {
+    opacity: 50%;
+    width: 100vh;
+    height: 100vh;
+    bottom: -50vh;
+    left: -50vh;
+    z-index: -3;
+    background-color:#EDFCFB;
+  }
+
+  &.three {
+    opacity: 25%;
+    width: 150vh;
+    height: 150vh;
+    bottom: -75vh;
+    left: -75vh;
+    z-index: -4;
+    background-color:#EDFCFB;
+  }
+
+  &.four {
+    opacity: 10%;
+    width: 200vh;
+    height: 200vh;
+    bottom: -100vh;
+    left: -100vh;
+    z-index: -5;
+    background-color:#EDFCFB;
+  }
+}
