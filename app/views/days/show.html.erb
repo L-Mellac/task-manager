@@ -37,9 +37,16 @@
       <div class="task" data-controller="task-update">
         <div class="categories hidden" data-task-update-target="categoriesPopup">
           <% @categories.each do |category| %>
-            <p><%= category.name %></p>
+            <form action=<%="/tasks/#{task.id}"%> method="patch">
+              <button type="submit" name=task[category_id] value=<%= category.id %>><%= category.name %></button>
+              <input type="hidden" name="authenticity_token", value="<%= form_authenticity_token %>">
+            </form>
           <% end %>
-          <form action="/categories" method="post" data-task0upda>
+          <form action=<%="/tasks/#{task.id}"%> method="patch">
+              <button type="submit" name=task[category_id] value=<%= nil %>>(No Category)</button>
+              <input type="hidden" name="authenticity_token", value="<%= form_authenticity_token %>">
+            </form>
+          <form action="/categories" method="post">
             <input type="text" placeholder="+ new category" name="category[name]">
             <input type="hidden" name="day" value="<%=@day.id%>">
             <input type="hidden" name="authenticity_token", value="<%= form_authenticity_token %>">
