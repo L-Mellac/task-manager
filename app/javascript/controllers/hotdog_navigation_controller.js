@@ -8,6 +8,7 @@ export default class extends Controller {
     this.threeBarsTarget.classList.toggle("hidden");
     this.progressLinkTarget.classList.toggle("hidden");
     this.customizeLinkTarget.classList.toggle("hidden");
+
     this.circle1Target.classList.toggle("moved");
     this.circle2Target.classList.toggle("moved");
     this.circle3Target.classList.toggle("moved");

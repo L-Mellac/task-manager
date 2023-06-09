@@ -22,7 +22,7 @@
   <div class="highlight-and-date-container">
     <div class="highlight"></div>
     <div class="day-name-and-date">
-      <h2><%= Date.today() %></h2>
+      <h2><%= Date.parse(@day.created_at.to_s) %></h2>
       <h1>today.</h1>
     </div>
   </div>

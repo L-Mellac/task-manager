@@ -1,73 +1,44 @@
+<div class="navbar" data-controller="hotdog-navigation-login" data-action="click->hotdog-navigation-login#toggleMenu">
 
-<div id="menu" data-controller="hamburger">
-
-  <div id="menu-bar" data-action="click->hamburger#expandMenu" data-hamburger-target="menubar">
-    <div id="bar1" class="bar"></div>
-    <div id="bar2" class="bar"></div>
-    <div id="bar3" class="bar"></div>
+  <div id="hotdog-menu" data-hotdog-navigation-login-target="threeBars">
+    <div class="bar-top"></div>
+    <div class="bar-long"></div>
+    <div class="bar-bottom"></div>
   </div>
 
-  <nav class="nav" id="nav" data-hamburger-target="nav">
-    <ul>
-      <li><a data-hamburger-target="login-nav" data-action="click->hamburger#openLogInForm">log in</a></li>
-      <li><a data-hamburger-target="signup-nav" data-action="click->hamburger#openSignUpForm">sign up</a></li>
-    </ul>
-  </nav>
+  <a class="option-1 hidden"
+     data-hotdog-navigation-login-target="loginLink"
+     data-action="click->hotdog-navigation-login#toggleLogin"
+     <%= "data-action=\"click->hotdog-navigation-login#toggleSignup\"" unless user_signed_in? %>
+     href="/days/22">today</a>
 
-  <main class="login" id="login-form" data-hamburger-target="loginform">
+  <a class="option-2 hidden"
+     data-hotdog-navigation-login-target="signupLink"
+     >signup</a>
 
-    <form action="" method="get">
+  <form action="/user/sign_in" method="post" class="login-form hidden" data-hotdog-navigation-login-target="loginForm">
+    <h1>log in</h1>
+    <input type="text" placeholder="Username (required)" name="user[email]">
+    <input type="password" placeholder="Password (required)" name="user[password]">
+    <input type="hidden" name="authenticity_token", value="<%= form_authenticity_token %>">
+    <input type="submit" value="enter">
+  </form>
 
-      <h1>log in</h1>
-
-      <div>
-        <input type="text" placeholder="Username (required)">
-      </div>
-
-      <div>
-        <input type="password" placeholder="Password (required)">
-      </div>
-
-      <input type="submit" value="enter">
-
-    </form>
-
-  </main>
-
-  <main class="signup" id="signup-form" data-hamburger-target="signupform">
-
-    <form action="" method="get">
-
-      <h1>sign up</h1>
-
-      <div>
-        <input type="text" placeholder="Email (required)">
-      </div>
-
-      <div>
-        <input type="password" placeholder="Password (required)">
-      </div>
-
-      <input type="submit" value="enter">
-
-    </form>
-
-  </main>
-
-  <div class="menu-bg" id="menu-bg" data-hamburger-target="menubg"></div>
+  <form action="" method="get" class="signup-form hidden" data-hotdog-navigation-login-target="signupForm">
+    <h1>sign up</h1>
+    <input type="text" placeholder="Email (required)">
+    <input type="password" placeholder="Password (required)">
+    <input type="submit" value="enter">
+  </form>
 
 </div>
 
-<div class="circle one"></div>
-<div class="circle two"></div>
-<div class="circle three"></div>
-<div class="circle four"></div>
+<div class="circle-landing one"></div>
+<div class="circle-landing two"></div>
+<div class="circle-landing three"></div>
+<div class="circle-landing four"></div>
 
-<div class="landing_container">
-  <h1 class="heading">focus.</h1>
-</div>
-
-
-<div class="landing_text">
-  <p class="text"> A fun & simple way <br> to customise <br> your daily tasks.</p>
+<div class="landing-container">
+  <p class="landing-heading">focus.</p>
+  <p class="landing-subtitle"> A fun & simple way <br> to customise <br> your daily tasks.</p>
 </div>

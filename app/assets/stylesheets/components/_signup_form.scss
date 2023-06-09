@@ -1,15 +1,17 @@
-/* id */
-#signup-form {
-  display: none;
-}
-
-.signup {
-
-  /* html main element*/
-  main {
-    width: 50em;
-    margin: -12em -4em;
-  }
+.signup-form {
+  z-index: 999;
+  color: #062321;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  padding: 20px;
+  display: grid;
+  box-shadow: 0px 0px 4px #cecece;
+  justify-items: center;
+  position: fixed;
+  left: 4em;
+  top: 9em;
+  background: #EDFCFB;
 
   /* username/password */
   input[type="text"], input[type="password"]
@@ -46,36 +48,9 @@
     cursor: pointer;
   }
 
-
-  /* the whole circle */
-  form {
-    z-index: 999;
-    font-family: AmstelvarAlpha;
-    color: #062321;
-    margin: 100px -30px;
-    width: 400px;
-    height: 400px;
-    border-radius: 50%;
-    padding: 20px;
-    display: grid;
-    box-shadow: 0px 0px 4px #cecece;
-    justify-items: center;
-    position: relative;
-    background: #EDFCFB;
-    top: -26em;
-  }
-
-  /* div inside the form */
-  form div
-  {
-    width:70%;
-    margin: -10px 0;
-  }
-
   /* log in text */
-  form h1 {
+  h1 {
     margin-top: 60px;
   }
-
 
 }
