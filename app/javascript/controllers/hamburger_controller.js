@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["menubar", "menubg", "nav", "loginform"]
+  static targets = ["menubar", "menubg", "nav", "loginNav", "signupNav", "loginform", "signupform"]
   connect() {
     // console.log("Hello world")
   }
@@ -14,7 +14,13 @@ export default class extends Controller {
 
   openLogInForm() {
     this.loginformTarget.style.display = "block";
-    this.navTarget.style.display = "none";
+    this.loginNavTarget.style.display = "none";
+    this.menubarTarget.style.display = "none";
+  }
+
+  openSignUpForm() {
+    this.signupformTarget.style.display = "block";
+    this.signupNavTarget.style.display = "none";
     this.menubarTarget.style.display = "none";
   }
 
