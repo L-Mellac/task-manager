@@ -5,10 +5,11 @@
 //   margin-top: 15%;
 // }
 .cards {
+  padding-left: 28%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 25px;
-
+  padding-top: 23%;
 }
 
 .card-circle {
@@ -29,8 +30,7 @@
 #progress {
   position:absolute;
   left: 0%;
-  right: 2.37%;
-  top: 65%;
+  top: 118%;
   bottom: 0%;
   font-family: 'AmstelvarAlpha';
   font-style: normal;
@@ -61,14 +61,14 @@ $bp-lg: 800px;
   box-sizing: border-box;
 }
 
-html, body {
-  height: 100%;
-}
+// html, body {
+//   height: 100%;
+// }
 
-body {
-  display: grid;
-  place-items: center;
-}
+// body {
+//   display: grid;
+//   place-items: center;
+// }
 
 .page-content {
   display: grid;
