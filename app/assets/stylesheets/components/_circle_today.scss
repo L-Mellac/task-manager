@@ -1,6 +1,7 @@
 .circle-today {
   border-radius: 100%;
   position: fixed;
+  z-index: -10;
 
   &.one {
     opacity: 75%;

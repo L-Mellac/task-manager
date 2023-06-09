@@ -1,29 +1,13 @@
 <div class="navbar">
-  <div id="menu" data-controller="hamburger">
 
-  <div id="menu-bar" data-action="click->hamburger#expandMenu" data-hamburger-target="menubar">
-    <div id="bar1" class="bar"></div>
-    <div id="bar2" class="bar"></div>
-    <div id="bar3" class="bar"></div>
+  <div id="hotdog-menu" data-controller="hotdog" data-action="click->hotdog#expandMenu">
+    <div class="bar-top"></div>
+    <div class="bar-long"></div>
+    <div class="bar-bottom"></div>
   </div>
 
-  <nav class="nav" id="nav" data-hamburger-target="nav">
-    <ul>
-      <li><a href="#">log in</a></li>
-      <li><a href="#">sign in</a></li>
-    </ul>
-  </nav>
-
-  <nav class="nav" id="nav">
-    <ul>
-      <li><a href="#">log in</a></li>
-      <li><a href="#">sign in</a></li>
-    </ul>
-  </nav>
-
-  <div class="menu-bg" id="menu-bg" data-hamburger-target="menubg"></div>
-
-  </div>
+  <a href="/days">progress</a>
+  <a>customize</a>
 </div>
 
 <div class="circle-today">
