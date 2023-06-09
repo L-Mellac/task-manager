@@ -1,5 +1,7 @@
 .search-bar {
-  // float: right;
+  padding-top: 50px;
+  float: right;
+
 
   .form-control {
     width: 30%;
@@ -14,8 +16,7 @@
 .days-container {
   display: flex;
   justify-content: center;
-  margin-left: 25%;
-  margin-top: 15%;
+  text-align: center;
   .cards a {
     text-decoration: none;
     color: white;
