@@ -14,6 +14,7 @@
       <ul>
         <li><a href="#">today</a></li>
         <li><a href="#">week</a></li>
+        <li><a href="#">search</a></li>
       </ul>
     </nav>
 
@@ -21,6 +22,7 @@
       <ul>
         <li><a href="#">today</a></li>
         <li><a href="#">week</a></li>
+        <li><a href="#">search</a></li>
       </ul>
     </nav>
 
@@ -58,14 +60,26 @@
   <div class="days-container"[CIRCLED HIGHLIGHTS - MIDDLE]>
     <div class="cards">
       <% @days.each do |day| %>
-        <%= link_to day_path(day) do %>
-          <div class="card-circle" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-            <%= day.highlight %>
+        <%# link_to day_path(day) do %>
+
+          <%# <div class="card-circle" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)"> %>
+            <%# day.highlight %>
+          <%# </div> %>
+
+          <div class="progress-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+            <div class="progress-content">
+              <h2 class="progress-title"><%= day.highlight %></h2>
+              <p class="progress-copy"><%= day.name %></p>
+              <%= link_to "View Day", day_path(day), class: "progress-btn" %>
+            </div>
+
           </div>
-        <% end %>
+
+        <%# end %>
       <% end %>
     </div>
   </div>
+
 
   <div>
   <h1 id="progress">progress.</h1>
