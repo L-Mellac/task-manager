@@ -72,6 +72,20 @@
   padding-left: 7em;
 }
 
+.categories {
+  position: absolute;
+  left: -9em;
+  top: -50%;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgba($color: $turquoise_shade, $alpha: 0.5);
+
+  input[type=text] {
+    width: 8em;
+    margin-left: 0 !important;
+  }
+}
+
 .task {
   display: flex;
   justify-content: center;
@@ -80,14 +94,14 @@
   border-width: 1px;
   border-radius: 0.6em;
   padding: 0.5em;
-  color: $black;
+  position: relative;
 
   form {
     display: flex;
     align-items: center;
   }
 
-  select {
+  .category {
     background-color: rgba($color: $turquoise_shade, $alpha: 0.5);
     border: none;
     appearance: none;
@@ -97,6 +111,17 @@
     height: 2em;
     text-align: center;
   }
+
+  // select {
+  //   background-color: rgba($color: $turquoise_shade, $alpha: 0.5);
+  //   border: none;
+  //   appearance: none;
+  //   border-radius: 0.6em;
+  //   padding: 0.25em;
+  //   width: 2em;
+  //   height: 2em;
+  //   text-align: center;
+  // }
 
   input[type=text] {
     background-color: $transparent;
