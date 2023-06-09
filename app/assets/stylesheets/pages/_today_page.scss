@@ -29,12 +29,11 @@
   position: relative;
   h1 {
     font-size: 10em;
-    font-weight: lighter;
+    font-family: $headers-font;
   }
   h2 {
     position: absolute;
     font-size: 3em;
-    font-weight: lighter;
     left: 4.5em;
     top: 0.3em;
   }
@@ -60,7 +59,6 @@ $transparent: rgba($color: #FFFFFF, $alpha: 0);
   border-radius: 0.6em;
   padding: 0.1em;
   color: $black;
-  font-family: $body-font;
 
   form {
     display: flex;
