@@ -1,9 +1,9 @@
 /* id */
-#login-form {
+#signup-form {
   display: none;
 }
 
-.login {
+.signup {
 
   /* html main element*/
   main {
@@ -41,14 +41,16 @@
   /* submit button hover */
   input[type="submit"]:hover
   {
-    background: black;
+    background: #062321;
     transition:all .15s ease-in-out;
     cursor: pointer;
   }
 
+
   /* the whole circle */
   form {
     z-index: 999;
+    font-family: AmstelvarAlpha;
     color: #062321;
     margin: 100px -30px;
     width: 400px;
