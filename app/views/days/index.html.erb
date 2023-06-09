@@ -1,6 +1,12 @@
 <%# <h1>Days#index</h1>
 <p>Find me in app/views/days/index.html.erb</p> %>
 <div class="container">
+  <div class="circle one"></div>
+  <div class="circle two"></div>
+  <div class="circle three"></div>
+  <div class="circle four"></div>
+
+
 
 
   <%# [DROP DOWN MENU - TOP LEFT] %>
@@ -13,10 +19,18 @@
       </select>
   </div>
 
-  <div class=""[SEARCH - TOP RIGHT]>
+  <div class="search-bar"[SEARCH - TOP RIGHT]>
+    <%= form_with url: days_path, method: :get, class: "d-flex" do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Search"
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
   </div>
 
-  <div class=""[CIRCLED HIGHLIGHTS - MIDDLE]>
+  <div class="days-container"[CIRCLED HIGHLIGHTS - MIDDLE]>
     <div class="cards">
       <% @days.each do |day| %>
         <%= link_to day_path(day) do %>
@@ -28,8 +42,9 @@
     </div>
   </div>
 
-  <div class=""[H1 WITH DOT - BOTTOM LEFT]>
-  <h1>progress.</div>
+  <div>
+  <h1 id="progress">progress.</h1>
+  </div>
 
   <%# <div class="container"[4 ARCS - FROM BOTTOM LEFT - (GOES TOP LEFT ON CLICK OF DROP DOWN MENU - JAVASCRIPT)]>
   </div> %>
