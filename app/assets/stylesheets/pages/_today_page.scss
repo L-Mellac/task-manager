@@ -1,14 +1,29 @@
 .navbar {
   height: 15vh;
-  padding-left: 3em;
 
-  a {
+  .option-1 {
     font-family: $headers-font;
     font-size: 1.5em;
     color: $black;
     text-decoration: none;
-    display: none;
+    position: fixed;
+    left: 9em;
+    top: 4em;
   }
+
+  .option-2 {
+    font-family: $headers-font;
+    font-size: 1.5em;
+    color: $black;
+    text-decoration: none;
+    position: fixed;
+    top: 9em;
+    left: 4em;
+  }
+}
+
+.hidden {
+  display: none !important;
 }
 
 .today-page-container {
