@@ -12,6 +12,10 @@
 }
 
 .days-container {
+  display: flex;
+  justify-content: center;
+  margin-left: 25%;
+  margin-top: 15%;
   .cards a {
     text-decoration: none;
     color: white;
