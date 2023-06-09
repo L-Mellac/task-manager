@@ -37,9 +37,16 @@
       <div class="task" data-controller="task-update">
         <div class="categories hidden" data-task-update-target="categoriesPopup">
           <% @categories.each do |category| %>
-            <p><%= category.name %></p>
+            <form action=<%="/tasks/#{task.id}"%> method="patch">
+              <button type="submit" class="category-btn" name=task[category_id] value=<%= category.id %>><%= category.name %></button>
+              <input type="hidden" name="authenticity_token", value="<%= form_authenticity_token %>">
+            </form>
           <% end %>
-          <form action="/categories" method="post" data-task0upda>
+          <form action=<%="/tasks/#{task.id}"%> method="patch">
+            <button type="submit" class="category-btn" name=task[category_id] value=<%= nil %>>(No Category)</button>
+            <input type="hidden" name="authenticity_token", value="<%= form_authenticity_token %>">
+          </form>
+          <form action="/categories" method="post">
             <input type="text" placeholder="+ new category" name="category[name]">
             <input type="hidden" name="day" value="<%=@day.id%>">
             <input type="hidden" name="authenticity_token", value="<%= form_authenticity_token %>">
@@ -48,27 +55,14 @@
 
         <form action=<%="/tasks/#{task.id}"%> method="patch">
           <div class="category" data-action="click->task-update#toggleCategoriesPopup"><%= task.category.name.first unless task.category.nil? %></div>
-        <!--
-          <select name="task[category_id]">
-            <% if task.category.nil? %>
-              <option> </option>
-            <% else %>
-              <option value="<%= task.category.id %>"><%= task.category.name.first %></option>
-            <% end %>
-            <% @categories.each do |category| %>
-              <option value="<%= category.id %>"><%= category.name.first %></option>
-            <% end %>
-          </select>
-        -->
-
 
           <input type="text" name="task[description]" value="<%=task.description%>">
 
-          <input type="button" name="task[completed]" value="">
+          <button type="submit" name="task[completed]" class="checkmark <%= "done" if task.completed? %>" value=<%= !task.completed? %>></button>
 
           <input type="hidden" name="authenticity_token", value="<%= form_authenticity_token %>">
         </form>
-        <%= button_to "x", task_path(task), method: :delete %>
+        <%= button_to "x", task_path(task), method: :delete, class: "delete-btn" %>
       </div>
       <% end %>
   </div>

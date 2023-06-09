@@ -11,4 +11,8 @@ export default class extends Controller {
   toggleCategoriesPopup() {
     this.categoriesPopupTarget.classList.toggle("hidden")
   }
+
+  updateCategory(event) {
+
+  }
 }
