@@ -12,7 +12,7 @@ class DaysController < ApplicationController
 
   def index
     create
-    @days = current_user.days
+    @days = current_user.days.order(created_at: :asc)
   end
 
   def show

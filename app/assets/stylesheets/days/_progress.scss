@@ -1,15 +1,15 @@
-// .days-container{
-//   display: flex;
-//   justify-content: center;
-//   margin-left: 25%;
-//   margin-top: 15%;
-// }
+.progress-container {
+  // height: 85vh;
+  // display: flex;
+}
 .cards {
-  padding-left: 28%;
+  max-height: 520px;
+  padding-left: 0%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 25px;
-  padding-top: 23%;
+  padding-top: 0%;
+  overflow: auto;
 }
 
 .card-circle {
@@ -18,19 +18,17 @@
   border-radius: 50%;
   background-size: cover;
   background-position: center;
-
-
 }
 
-.container {
-  width: 100%;
-  height: 100%;
-}
+// .container {
+//   width: 100%;
+//   height: 100%;
+// }
 
 #progress {
   position:absolute;
   left: 0%;
-  top: 118%;
+  top: 90%;
   bottom: 0%;
   font-family: 'AmstelvarAlpha';
   font-style: normal;
