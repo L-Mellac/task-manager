@@ -46,7 +46,7 @@
   border-radius: 50%;
   border-style: solid;
   border-width: 1em;
-  border-color: $turquoise_shade;
+  border-color: rgba($color: $turquoise_shade, $alpha: 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -155,7 +155,19 @@
 
   .delete-btn {
     background-color: $transparent;
-    border: none;
-    color: $turquoise_shade;
+    color: $black;
+    position: absolute;
+    right: -1em;
+    top: -1em;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    border: 1px solid $black;
+    padding: 0;
+    line-height: 100%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
   }
 }
