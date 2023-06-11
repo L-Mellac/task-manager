@@ -8,13 +8,14 @@
 }
 
 .cards {
-  max-height: 520px;
+  max-height: 510px;
   padding-left: 0%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 25px;
   padding-top: 0%;
   overflow: auto;
+  mask-image: linear-gradient(to bottom, black calc(100% - 48px), transparent 100%);
 }
 
 .card-circle {
