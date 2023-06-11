@@ -2,6 +2,11 @@
   // height: 85vh;
   // display: flex;
 }
+
+.hidden {
+  display: none !important;
+}
+
 .cards {
   max-height: 520px;
   padding-left: 0%;
@@ -41,9 +46,9 @@
 }
 
 
-@import url('https://fonts.googleapis.com/css?family=Cardo:400i|Rubik:400,700&display=swap');
+// @import url('https://fonts.googleapis.com/css?family=Cardo:400i|Rubik:400,700&display=swap');
 
-$imageIds: '1517021897933-0e0319cfbc28', '1533903345306-15d1c30952de', '1545243424-0ce743321e11', '1531306728370-e2ebd9d7bb99';
+// $imageIds: '1517021897933-0e0319cfbc28', '1533903345306-15d1c30952de', '1545243424-0ce743321e11', '1531306728370-e2ebd9d7bb99';
 
 $bp-md: 600px;
 $bp-lg: 800px;
@@ -51,8 +56,10 @@ $bp-lg: 800px;
 :root {
   --d: 700ms;
   --e: cubic-bezier(0.19, 1, 0.22, 1);
-  --font-sans: 'Rubik', sans-serif;
-  --font-serif: 'Cardo', serif;
+  --font-sans: $body-font, sans-serif;
+  // --font-sans: 'Rubik', sans-serif;
+  --font-serif: $headers-font, serif;
+  // --font-serif: 'Cardo', serif;
 }
 
 * {
@@ -146,14 +153,6 @@ $bp-lg: 800px;
     transform: translateY(-50%);
     transition: transform calc(var(--d) * 2) var(--e);
   }
-
-  // @each $id in $imageIds {
-  //   $i: index($imageIds, $id);
-
-  //   &:nth-child(#{$i}):before {
-  //     background-image: url(https://images.unsplash.com/photo-#{$id}?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ);
-  //   }
-  // }
 }
 
 .progress-content {
