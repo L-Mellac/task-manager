@@ -23,7 +23,7 @@
   <div class="highlight-and-date-container">
     <div></div>
 
-    <div class="highlight" style="background-image: url('<%= cl_image_path @day.highlight.key if @day.highlight.present?%>');"
+    <div class="highlight" style="<%= %Q(background-image: url(#{cl_image_path @day.highlight.key}); border: none;) if @day.highlight.present?%>"
          data-controller="highlight">
       <p>click here to add a highlight for today!</p>
       <form enctype="multipart/form-data" action=<%="/days/#{@day.id}"%> method="post" data-highlight-target="highlightForm">
