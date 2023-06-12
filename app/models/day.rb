@@ -5,5 +5,4 @@ class Day < ApplicationRecord
 
   include PgSearch::Model
   multisearchable against: [:highlight, :name]
-
 end
