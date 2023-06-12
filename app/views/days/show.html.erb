@@ -24,10 +24,10 @@
     <div></div>
 
     <div class="highlight" style="background-image: url('<%= cl_image_path @day.highlight.key if @day.highlight.present?%>');"
-         data-controller="highlight-controller">
+         data-controller="highlight">
       <p>click here to add a highlight for today!</p>
-      <form enctype="multipart/form-data" action=<%="/days/#{@day.id}"%> method="post">
-        <input type="file" name="day[highlight]" id="highlightUpload">
+      <form enctype="multipart/form-data" action=<%="/days/#{@day.id}"%> method="post" data-highlight-target="highlightForm">
+        <input type="file" name="day[highlight]" id="highlightUpload" data-action="change->highlight#uploadHighlight">
         <input type="hidden" name="_method" value="patch">
         <input type="hidden" name="authenticity_token", value="<%= form_authenticity_token %>">
       </form>
