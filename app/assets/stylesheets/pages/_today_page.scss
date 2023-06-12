@@ -84,6 +84,11 @@
     width: 8em;
     margin-left: 0 !important;
   }
+
+  .category-btn {
+    background-color: $transparent;
+    border: none;
+  }
 }
 
 .task {
@@ -112,24 +117,13 @@
     text-align: center;
   }
 
-  // select {
-  //   background-color: rgba($color: $turquoise_shade, $alpha: 0.5);
-  //   border: none;
-  //   appearance: none;
-  //   border-radius: 0.6em;
-  //   padding: 0.25em;
-  //   width: 2em;
-  //   height: 2em;
-  //   text-align: center;
-  // }
-
   input[type=text] {
     background-color: $transparent;
     margin-left: 0.5em;
     border: none;
   }
 
-  input[type=button] {
+  .checkmark {
     background-color: $transparent;
     border-style: solid;
     border-color: $turquoise_shade;
@@ -137,9 +131,13 @@
     border-radius: 50%;
     width: 2em;
     height: 2em;
+
+    &.done {
+      background-color: $turquoise_shade
+    }
   }
 
-  button {
+  .delete-btn {
     background-color: $transparent;
     border: none;
   }

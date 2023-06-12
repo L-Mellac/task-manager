@@ -1,7 +1,7 @@
 <%# <h1>Days#index</h1>
 <p>Find me in app/views/days/index.html.erb</p> %>
-<div class="container">
 
+<div class="progress-container">
   <div id="menu" data-controller="hamburger">
 
     <div id="menu-bar" data-action="click->hamburger#expandMenu" data-hamburger-target="menubar">
@@ -60,32 +60,17 @@
   <div class="days-container"[CIRCLED HIGHLIGHTS - MIDDLE]>
     <div class="cards">
       <% @days.each do |day| %>
-        <%# link_to day_path(day) do %>
-
-          <%# <div class="card-circle" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)"> %>
-            <%# day.highlight %>
-          <%# </div> %>
-
           <div class="progress-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
             <div class="progress-content">
               <h2 class="progress-title"><%= day.highlight %></h2>
               <p class="progress-copy"><%= day.name %></p>
               <%= link_to "View Day", day_path(day), class: "progress-btn" %>
             </div>
-
           </div>
-
-        <%# end %>
       <% end %>
     </div>
+    <div class="progress-div">
+      <h1 id="progress">progress.</h1>
+    </div>
   </div>
-
-
-  <div>
-  <h1 id="progress">progress.</h1>
-  </div>
-
-  <%# <div class="container"[4 ARCS - FROM BOTTOM LEFT - (GOES TOP LEFT ON CLICK OF DROP DOWN MENU - JAVASCRIPT)]>
-  </div> %>
-
 </div>

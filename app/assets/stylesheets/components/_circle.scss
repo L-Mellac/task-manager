@@ -1,45 +1,45 @@
-
-.circle {
+.circle-landing {
   border-radius: 100%;
   position: fixed;
-  top: -50vh;
-  left: -50vh;
+  z-index: -10;
 
   &.one {
     opacity: 75%;
-    width: 80vh;
-    height: 80vh;
+    width: 50vh;
+    height: 50vh;
+    top: -25vh;
+    left: -25vh;
     z-index: -1;
     background-color:#EDFCFB;
   }
 
   &.two {
     opacity: 50%;
-    width: 120vh;
-    height: 120vh;
+    width: 100vh;
+    height: 100vh;
+    top: -50vh;
+    left: -50vh;
     z-index: -3;
     background-color:#EDFCFB;
-    top: -70vh;
-    left: -70vh;
   }
 
   &.three {
-    opacity: 40%;
-    width: 140vh;
-    height: 140vh;
+    opacity: 25%;
+    width: 150vh;
+    height: 150vh;
+    top: -75vh;
+    left: -75vh;
     z-index: -4;
     background-color:#EDFCFB;
-    top: -70vh;
-    left: -70vh;
   }
 
   &.four {
-    opacity: 20%;
-    width: 180vh;
-    height: 180vh;
+    opacity: 10%;
+    width: 200vh;
+    height: 200vh;
+    top: -100vh;
+    left: -100vh;
     z-index: -5;
     background-color:#EDFCFB;
-    top: -90vh;
-    left: -90vh;
   }
 }

@@ -1,76 +1,44 @@
-
-<div id="menu" data-controller="hotdog-navigation">
-
+<div class="navbar" data-controller="hotdog-navigation-login" data-action="click->hotdog-navigation-login#toggleMenu">
   <div id="hotdog-menu" data-hotdog-navigation-target="threeBars">
-    <div class="pulse">
-      <div class="bar-top"></div>
-      <div class="bar-long"></div>
-      <div class="bar-bottom"></div>
+      <div class="pulse">
+        <div class="bar-top"></div>
+        <div class="bar-long"></div>
+        <div class="bar-bottom"></div>
+      </div>
     </div>
-  </div>
 
-  <nav class="nav" id="nav" data-hotdog-navigation-target="nav">
-    <ul>
-      <li><a data-hotdog-navigation-target="login-nav" data-action="click->hotdog-navigation#openLogInForm">log in</a></li>
-      <li><a data-hotdog-navigation-target="signup-nav" data-action="click->hotdog-navigation#openSignUpForm">sign up</a></li>
-    </ul>
-  </nav>
+  <a class="option-1 hidden"
+     data-hotdog-navigation-login-target="loginLink"
+     data-action="click->hotdog-navigation-login#toggleLogin"
+     <%= "data-action=\"click->hotdog-navigation-login#toggleSignup\"" unless user_signed_in? %>
+     href="/days/22">today</a>
 
-  <main class="login" id="login-form" data-hotdog-navigation-target="loginform">
+  <a class="option-2 hidden"
+     data-hotdog-navigation-login-target="signupLink"
+     >signup</a>
 
-    <form action="" method="get">
+  <form action="/user/sign_in" method="post" class="login-form hidden" data-hotdog-navigation-login-target="loginForm">
+    <h1>log in</h1>
+    <input type="text" placeholder="Username (required)" name="user[email]">
+    <input type="password" placeholder="Password (required)" name="user[password]">
+    <input type="hidden" name="authenticity_token", value="<%= form_authenticity_token %>">
+    <input type="submit" value="enter">
+  </form>
 
-      <h1>log in</h1>
-
-      <div>
-        <input type="text" placeholder="Username (required)">
-      </div>
-
-      <div>
-        <input type="password" placeholder="Password (required)">
-      </div>
-
-      <input type="submit" value="enter">
-
-    </form>
-
-  </main>
-
-  <main class="signup" id="signup-form" data-hotdog-navigation-target="signupform">
-
-    <form action="" method="get">
-
-      <h1>sign up</h1>
-
-      <div>
-        <input type="text" placeholder="Email (required)">
-      </div>
-
-      <div>
-        <input type="password" placeholder="Password (required)">
-      </div>
-
-      <input type="submit" value="enter">
-
-    </form>
-
-  </main>
-
-  <div class="menu-bg" id="menu-bg" data-hotdog-navigation-target="menubg"></div>
-
-</div>
-
-<div class="circle one"></div>
-<div class="circle two"></div>
-<div class="circle three"></div>
-<div class="circle four"></div>
+  <form action="" method="get" class="signup-form hidden" data-hotdog-navigation-login-target="signupForm">
+    <h1>sign up</h1>
+    <input type="text" placeholder="Email (required)">
+    <input type="password" placeholder="Password (required)">
+    <input type="submit" value="enter">
+  </form>
+ </div>
 
 <div class="landing_container">
   <h1 class="heading">focus.</h1>
   <h2>a fun & simple way <br> to customise your <br>daily task.</h2>
 </div>
 
-
-<%# <div class="landing_text">
-  <p class="text"> a fun & simple way <br> to customise <br> your daily task.</p>
-</div> %>
+<div class="circle-landing one"></div>
+<div class="circle-landing two"></div>
+<div class="circle-landing three"></div>
+<div class="circle-landing four"></div>
