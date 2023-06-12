@@ -1,20 +1,22 @@
 
-<div id="menu" data-controller="hamburger">
+<div id="menu" data-controller="hotdog-navigation">
 
-  <div id="menu-bar" data-action="click->hamburger#expandMenu" data-hamburger-target="menubar">
-    <div id="bar1" class="bar"></div>
-    <div id="bar2" class="bar"></div>
-    <div id="bar3" class="bar"></div>
+  <div id="hotdog-menu" data-hotdog-navigation-target="threeBars">
+    <div class="pulse">
+      <div class="bar-top"></div>
+      <div class="bar-long"></div>
+      <div class="bar-bottom"></div>
+    </div>
   </div>
 
-  <nav class="nav" id="nav" data-hamburger-target="nav">
+  <nav class="nav" id="nav" data-hotdog-navigation-target="nav">
     <ul>
-      <li><a data-hamburger-target="login-nav" data-action="click->hamburger#openLogInForm">log in</a></li>
-      <li><a data-hamburger-target="signup-nav" data-action="click->hamburger#openSignUpForm">sign up</a></li>
+      <li><a data-hotdog-navigation-target="login-nav" data-action="click->hotdog-navigation#openLogInForm">log in</a></li>
+      <li><a data-hotdog-navigation-target="signup-nav" data-action="click->hotdog-navigation#openSignUpForm">sign up</a></li>
     </ul>
   </nav>
 
-  <main class="login" id="login-form" data-hamburger-target="loginform">
+  <main class="login" id="login-form" data-hotdog-navigation-target="loginform">
 
     <form action="" method="get">
 
@@ -34,7 +36,7 @@
 
   </main>
 
-  <main class="signup" id="signup-form" data-hamburger-target="signupform">
+  <main class="signup" id="signup-form" data-hotdog-navigation-target="signupform">
 
     <form action="" method="get">
 
@@ -54,7 +56,7 @@
 
   </main>
 
-  <div class="menu-bg" id="menu-bg" data-hamburger-target="menubg"></div>
+  <div class="menu-bg" id="menu-bg" data-hotdog-navigation-target="menubg"></div>
 
 </div>
 
@@ -65,9 +67,10 @@
 
 <div class="landing_container">
   <h1 class="heading">focus.</h1>
+  <h2>a fun & simple way <br> to customise your <br>daily task.</h2>
 </div>
 
 
-<div class="landing_text">
-  <p class="text"> A fun & simple way <br> to customise <br> your daily tasks.</p>
-</div>
+<%# <div class="landing_text">
+  <p class="text"> a fun & simple way <br> to customise <br> your daily task.</p>
+</div> %>

@@ -1,3 +1,25 @@
+
+@keyframes shadow-pulse
+{
+  // 0% {
+  //   box-shadow: 0 0 0 0px rgba(129, 235, 224, 0.7);
+  // }
+  // 100% {
+  //   box-shadow: 0 0 0 45px rgba(129, 235, 224, 0.7);
+  // }
+}
+
+@keyframes shadow-pulse-big
+{
+  0% {
+    box-shadow: 0 0 0 0px rgba(129, 235, 224, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 0 55px rgba(129, 235, 224, 0.5);
+  }
+}
+
+
 #hotdog-menu {
   display: flex;
   flex-direction: column;
@@ -19,6 +41,7 @@
     height: 0.5em;
     background-color: $black;
     border-radius: 0.25em;
+
   }
 
   .bar-bottom {
@@ -26,5 +49,22 @@
     height: 0.5em;
     background-color: $black;
     border-radius: 0.25em;
+  }
+
+  :hover {
+    animation: none;
+  }
+
+  .pulse {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.5em;
+    border-radius: 50%;
+    width: 4em;
+    height: 4em;
+    animation: shadow-pulse-big 2s infinite;
+    padding-top: 0.8em;
+     // box-shadow: 0 0 0 0 rgba(#5a99d4, .5);
   }
 }
