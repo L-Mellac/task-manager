@@ -249,17 +249,29 @@
     background-color: $transparent;
     color: $black;
     position: absolute;
-    border: solid 1px $black;
-    border-radius: 0.5em;
-    right: -8em;
-    padding: 0.7em 0.5em;
-    top: 1.5em;
-    height: 1em;
+    right: -1em;
+    top: 2em;
+    width: 0.5em;
+    height: 0.5em;
+    border: none;
+    padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     line-height: 0.5em;
     cursor: pointer;
+  }
+
+  .priority-options {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid $black;
+    border-radius: 0.5em;
+    padding: 0.5em;
+    gap: 0.3em;
+    position: absolute;
+    right: -4.5em;
   }
 }

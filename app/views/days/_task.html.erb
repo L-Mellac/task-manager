@@ -34,8 +34,20 @@
       data-task-update-target="deleteButton"
       data-action="click->task-update#deleteTask"></i>
 
-  <div class="update-priority-button hidden"
+  <div class="update-priority-button">
+
+    <i class="fa-solid fa-circle-exclamation hidden"
        data-task-update-target="priorityButton"
-       data-action="click->task-update#updatePriority"
-       >Change priority<div>
+       data-action="click->task-update#togglePrioritySelector"></i>
+
+    <div class="priority-options hidden"
+         data-task-update-target="prioritySelector">
+      <span data-action="click->task-update#updatePriority">1</span>
+      <span data-action="click->task-update#updatePriority">2</span>
+      <span data-action="click->task-update#updatePriority">3</span>
+      <span data-action="click->task-update#updatePriority">4</span>
+      <span data-action="click->task-update#updatePriority">5</span>
+    </div>
+
+  </div>
 </div>
