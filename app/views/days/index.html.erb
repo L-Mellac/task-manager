@@ -8,14 +8,14 @@
       <div class="bar-bottom"></div>
     </div>
 
-    <a href="/days" class="option-1 hidden" data-hotdog-navigation-progess-target="todayLink">today</a>
+    <a href="/days" class="option-1 hidden" data-hotdog-navigation-progress-target="todayLink">today</a>
     <a class="option-2 hidden" data-hotdog-navigation-progress-target="customizeLink">customize</a>
 
     <div class="progress-circle">
-      <div class="progress-circle one" data-hotdog-navigation-target="circle1"></div>
-      <div class="progress-circle two" data-hotdog-navigation-target="circle2"></div>
-      <div class="progress-circle three" data-hotdog-navigation-target="circle3"></div>
-      <div class="progress-circle four" data-hotdog-navigation-target="circle4"></div>
+      <div class="progress-circle one" data-hotdog-navigation-progress-target="circle1"></div>
+      <div class="progress-circle two" data-hotdog-navigation-progress-target="circle2"></div>
+      <div class="progress-circle three" data-hotdog-navigation-progress-target="circle3"></div>
+      <div class="progress-circle four" data-hotdog-navigation-progress-target="circle4"></div>
     </div>
 
   </div>
@@ -50,7 +50,7 @@
               <p class="progress-copy"><%= day.highlight %></p>
               <%= link_to "View Day", day_path(day), class: "progress-btn" %>
             </div>
-            
+
           </div>
       <% end %>
 
