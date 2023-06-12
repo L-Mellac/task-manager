@@ -21,15 +21,18 @@
 <div class="today-page-container">
 
   <div class="highlight-and-date-container">
-    <div class="highlight">select a highlight for today</div>
-    <%= simple_form_for(@day) do |f| %>
-       <%= f.input :highlight, as: :file %>
-       <%= f.submit %>
-    <% end %>
+    <div></div>
 
-   <%  if @day.highlight.present? %>
-      <%= cl_image_tag @day.highlight.key, height: 300, width: 400, crop: :fill %>
-  <% end %>
+    <div class="highlight" style="background-image: url('<%= cl_image_path @day.highlight.key if @day.highlight.present?%>');"
+         data-controller="highlight-controller">
+      <p>click here to add a highlight for today!</p>
+      <form enctype="multipart/form-data" action=<%="/days/#{@day.id}"%> method="post">
+        <input type="file" name="day[highlight]" id="highlightUpload">
+        <input type="hidden" name="_method" value="patch">
+        <input type="hidden" name="authenticity_token", value="<%= form_authenticity_token %>">
+      </form>
+    </div>
+
     <div class="day-name-and-date">
       <h2><%= Date.parse(@day.created_at.to_s) %></h2>
       <form action=<%="/days/#{@day.id}"%> method="patch">
