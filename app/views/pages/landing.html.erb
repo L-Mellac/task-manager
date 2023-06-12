@@ -1,21 +1,40 @@
 <div class="navbar" data-controller="hotdog-navigation-login" data-action="click->hotdog-navigation-login#toggleMenu">
-  <div id="hotdog-menu" data-hotdog-navigation-target="threeBars">
+  <div id="hotdog-menu" data-hotdog-navigation-login-target="threeBars">
       <div class="pulse">
         <div class="bar-top"></div>
         <div class="bar-long"></div>
         <div class="bar-bottom"></div>
       </div>
-    </div>
+  </div>
 
-  <a class="option-1 hidden"
-     data-hotdog-navigation-login-target="loginLink"
-     data-action="click->hotdog-navigation-login#toggleLogin"
-     <%= "data-action=\"click->hotdog-navigation-login#toggleSignup\"" unless user_signed_in? %>
-     href="/days/22">today</a>
+  <% if user_signed_in? %>
+    <%= link_to 'Log out', destroy_user_session_path, data: { turbo_method: :delete, hotdog_navigation_login_target: 'logoutLink' }, class: 'signed-in-option-1 hidden' %>
 
-  <a class="option-2 hidden"
-     data-hotdog-navigation-login-target="signupLink"
-     >signup</a>
+    <a href="/days" class="signed-in-option-2">progress</a>
+    <a href="/days/<%= @day.id %>" class="signed-in-option-3">today</a>
+
+    <a class="option-1 hidden d-none"
+      data-hotdog-navigation-login-target="loginLink"
+      data-action="click->hotdog-navigation-login#toggleLogin">
+      login
+    </a>
+
+    <a class="option-2 hidden d-none"
+      data-hotdog-navigation-login-target="signupLink"
+      >signup
+    </a>
+  <% else %>
+    <a class="option-1 hidden"
+      data-hotdog-navigation-login-target="loginLink"
+      data-action="click->hotdog-navigation-login#toggleLogin">
+      login
+    </a>
+
+    <a class="option-2 hidden"
+      data-hotdog-navigation-login-target="signupLink"
+      >signup
+     </a>
+  <% end %>
 
   <form action="/user/sign_in" method="post" class="login-form hidden" data-hotdog-navigation-login-target="loginForm">
     <h1>log in</h1>
@@ -32,17 +51,6 @@
     <input type="submit" value="enter">
   </form>
 </div>
-
-<%# <div class="popup" data-controller="popup">
-  <p>sign up <br> to <br> log in.
-  </p>
-
-  <button
-    data-action="click->popup#togglePopup"
-    class="close-popup">
-    <span class="close-text">close</span>
-  </button>
-</div> %>
 
 <div class="landing_container">
   <h1 class="heading">focus.</h1>

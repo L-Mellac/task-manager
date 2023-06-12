@@ -20,6 +20,36 @@
     top: 9em;
     left: 4em;
   }
+
+  .signed-in-option-1 {
+    font-family: $headers-font;
+    font-size: 1.5em;
+    color: $black;
+    text-decoration: none;
+    position: fixed;
+    left: 9em;
+    top: 2em;
+  }
+
+  .signed-in-option-2 {
+    font-family: $headers-font;
+    font-size: 1.5em;
+    color: $black;
+    text-decoration: none;
+    position: fixed;
+    top: 5.5em;
+    left: 7em;
+  }
+
+  .signed-in-option-3 {
+    font-family: $headers-font;
+    font-size: 1.5em;
+    color: $black;
+    text-decoration: none;
+    position: fixed;
+    top: 9em;
+    left: 4em;
+  }
 }
 
 .hidden {
@@ -35,7 +65,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 40%;
+  width: 35%;
   padding-left: 2em;
   padding-bottom: 1em;
 }
@@ -56,34 +86,56 @@
 .day-name-and-date {
   position: relative;
   font-family: $headers-font;
-  h1 {
+
+  input[type=text] {
     font-size: 10em;
+    font-family: $headers-font;
+    background-color: $transparent;
+    border: none;
+    color: $black;
+    width: 100%;
+    &:focus {
+      outline: none;
+    }
   }
+
   h2 {
     position: absolute;
     font-size: 3em;
-    left: 5em;
-    top: 0.3em;
+    left: 0em;
+    bottom: -0.2em;
+    color: $black;
   }
 }
 
+.tasks-and-new-container {
+  display: flex;
+  flex-direction: column;
+  width: 65%;
+  height: 85%;
+  padding-left: 7em;
+  padding-bottom: 1em;
+}
+
 .tasks-container {
+  padding-top: 2em;
   display: flex;
   flex-direction: column;
   gap: 2em;
   align-items: start;
-  width: 60%;
-  padding-left: 7em;
+  width: 100%;
+  flex-wrap: wrap;
+  height: 100%;
+}
 
-  .new-task-input {
-    background-color: $transparent;
-    border: none;
-    color: $black;
-    border-bottom: 1px solid $black;
-    font-size: 3em;
-    &:focus {
-      outline: none;
-    }
+.new-task-input {
+  background-color: $transparent;
+  border: none;
+  color: $black;
+  border-bottom: 1px solid $black;
+  font-size: 3em;
+  &:focus {
+    outline: none;
   }
 }
 
@@ -115,7 +167,7 @@
   border-radius: 0.6em;
   padding: 0.5em;
   position: relative;
-  
+
   form {
     display: flex;
     align-items: center;
@@ -158,16 +210,15 @@
     color: $black;
     position: absolute;
     right: -1em;
-    top: -1em;
-    width: 1em;
-    height: 1em;
-    border-radius: 50%;
-    border: 1px solid $black;
+    width: 0.5em;
+    height: 0.5em;
+    border: none;
     padding: 0;
-    line-height: 100%;
     display: flex;
-    text-align: center;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    line-height: 0.5em;
+    cursor: pointer;
   }
 }
