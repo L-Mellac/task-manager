@@ -22,50 +22,36 @@
 
   <div class="highlight-and-date-container">
     <div class="highlight">select a highlight for today</div>
+    <%= simple_form_for(@day) do |f| %>
+       <%= f.input :highlight, as: :file %>
+       <%= f.submit %>
+    <% end %>
+
+   <%  if @day.highlight.present? %>
+      <%= cl_image_tag @day.highlight.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
     <div class="day-name-and-date">
       <h2><%= Date.parse(@day.created_at.to_s) %></h2>
-      <h1>today.</h1>
+      <form action=<%="/days/#{@day.id}"%> method="patch">
+        <input type="text" name="day[name]" value=<%= @day.name.nil? ? "today." : @day.name %>>
+        <input type="hidden" name="authenticity_token", value="<%= form_authenticity_token %>">
+      </form>
     </div>
   </div>
 
-  <div class="tasks-container">
-    <form action=<%="/days/#{@day.id}/tasks"%> method="post" name="task">
-      <input type="text" name="task[description]" placeholder="type here to add a new task" class="new-task-input">
-      <input type="hidden" name="authenticity_token", value="<%= form_authenticity_token %>">
-    </form>
+  <div class="tasks-and-new-container"
+       data-controller="task-create"
+       data-task-create-day-id-value=<%=@day.id%>>
+    <div class="new-task-container">
+      <form data-action="submit->task-create#createTask">
+        <input type="text" placeholder="type here to add a new task" class="new-task-input" data-task-create-target="inputField">
+      </form>
+    </div>
 
-    <% @day.tasks.each do |task| %>
-      <div class="task" data-controller="task-update">
-        <div class="categories hidden" data-task-update-target="categoriesPopup">
-          <% @categories.each do |category| %>
-            <form action=<%="/tasks/#{task.id}"%> method="patch">
-              <button type="submit" class="category-btn" name=task[category_id] value=<%= category.id %>><%= category.name %></button>
-              <input type="hidden" name="authenticity_token", value="<%= form_authenticity_token %>">
-            </form>
-          <% end %>
-          <form action=<%="/tasks/#{task.id}"%> method="patch">
-            <button type="submit" class="category-btn" name=task[category_id] value=<%= nil %>>(No Category)</button>
-            <input type="hidden" name="authenticity_token", value="<%= form_authenticity_token %>">
-          </form>
-          <form action="/categories" method="post">
-            <input type="text" placeholder="+ new category" name="category[name]">
-            <input type="hidden" name="day" value="<%=@day.id%>">
-            <input type="hidden" name="authenticity_token", value="<%= form_authenticity_token %>">
-          </form>
-        </div>
-
-        <form action=<%="/tasks/#{task.id}"%> method="patch">
-          <div class="category" data-action="click->task-update#toggleCategoriesPopup"><%= task.category.name.first unless task.category.nil? %></div>
-
-          <input type="text" name="task[description]" value="<%=task.description%>">
-
-          <button type="submit" name="task[completed]" class="checkmark <%= 'done' if task.completed? %>" value=<%= !task.completed? %>></button>
-
-          <input type="hidden" name="authenticity_token", value="<%= form_authenticity_token %>">
-        </form>
-        <%= button_to "x", task_path(task), method: :delete, class: "delete-btn" %>
-      </div>
+    <div class="tasks-container" data-task-create-target="tasksContainer">
+      <% @day.tasks.reverse_each do |task| %>
+        <%= render partial: "task", locals: { task: task, categories: @categories, day: @day} %>
       <% end %>
+    </div>
   </div>
-
 </div>

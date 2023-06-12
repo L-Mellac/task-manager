@@ -1,6 +1,7 @@
 class Day < ApplicationRecord
   belongs_to :user
   has_many :tasks, dependent: :destroy
+  has_one_attached :highlight
 
   include PgSearch::Model
   pg_search_scope :global_search,
@@ -11,5 +12,4 @@ class Day < ApplicationRecord
   using: {
     tsearch: { prefix: true }
   }
-
 end

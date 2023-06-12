@@ -1,3 +1,26 @@
+.navbar {
+  height: 15vh;
+
+  .p-option-1 {
+    font-family: $headers-font;
+    font-size: 1.5em;
+    color: $black;
+    text-decoration: none;
+    position: fixed;
+    left: 9em;
+    top: 2em;
+  }
+
+  .p-option-2 {
+    font-family: $headers-font;
+    font-size: 1.5em;
+    color: $black;
+    text-decoration: none;
+    position: fixed;
+    top: 9em;
+    left: 4em;
+  }
+}
 .progress-container {
   // height: 85vh;
   // display: flex;

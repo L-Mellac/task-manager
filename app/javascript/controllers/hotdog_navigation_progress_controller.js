@@ -1,8 +1,10 @@
 import { Controller } from "@hotwired/stimulus"
-
+console.log("Hello from Top of Controller")
 // Connects to data-controller="hotdog-navigation"
 export default class extends Controller {
-  
+  connect() {
+    console.log("Hello from before static targets")
+  }
   static targets = ["threeBars", "todayLink", "customizeLink", "circle1", "circle2", "circle3", "circle4"];
   toggleMenu() {
     this.threeBarsTarget.classList.toggle("hidden");
@@ -14,3 +16,5 @@ export default class extends Controller {
     this.circle4Target.classList.toggle("moved4");
   }
 }
+
+console.log("Hello from Bottom of Controller")
