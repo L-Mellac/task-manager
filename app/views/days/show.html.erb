@@ -24,7 +24,10 @@
     <div class="highlight">select a highlight for today</div>
     <div class="day-name-and-date">
       <h2><%= Date.parse(@day.created_at.to_s) %></h2>
-      <h1>today.</h1>
+      <form action=<%="/days/#{@day.id}"%> method="patch">
+        <input type="text" name="day[name]" value=<%= @day.name.nil? ? "today." : @day.name %>>
+        <input type="hidden" name="authenticity_token", value="<%= form_authenticity_token %>">
+      </form>
     </div>
   </div>
 

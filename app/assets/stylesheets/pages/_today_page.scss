@@ -56,14 +56,25 @@
 .day-name-and-date {
   position: relative;
   font-family: $headers-font;
-  h1 {
+
+  input[type=text] {
     font-size: 10em;
+    font-family: $headers-font;
+    background-color: $transparent;
+    border: none;
+    color: $black;
+    width: 100%;
+    &:focus {
+      outline: none;
+    }
   }
+
   h2 {
     position: absolute;
     font-size: 3em;
-    left: 5em;
-    top: 0.3em;
+    left: 0em;
+    bottom: -0.2em;
+    color: $black;
   }
 }
 
@@ -115,7 +126,7 @@
   border-radius: 0.6em;
   padding: 0.5em;
   position: relative;
-  
+
   form {
     display: flex;
     align-items: center;
