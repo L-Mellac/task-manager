@@ -46,8 +46,8 @@
         <% end %>
 
             <div class="progress-content">
-              <h2 class="progress-title"><%= day.name %> <br> <%= Date.parse(day.created_at.to_s) %></h2>
-              <p class="progress-copy"><%= day.highlight %></p>
+              <h2 class="progress-title"> <%= Date.parse(day.created_at.to_s) %></h2>
+              <p class="progress-copy"><%= day.name %> </p>
               <%= link_to "View Day", day_path(day), class: "progress-btn" %>
             </div>
 
