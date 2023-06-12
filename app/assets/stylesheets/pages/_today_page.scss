@@ -204,6 +204,7 @@
     width: 2em;
     height: 2em;
     text-align: center;
+    cursor: pointer;
   }
 
   input[type=text] {
@@ -236,6 +237,24 @@
     height: 0.5em;
     border: none;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 0.5em;
+    cursor: pointer;
+  }
+
+  .update-priority-button {
+    background-color: $transparent;
+    color: $black;
+    position: absolute;
+    border: solid 1px $black;
+    border-radius: 0.5em;
+    right: -8em;
+    padding: 0.7em 0.5em;
+    top: 1.5em;
+    height: 1em;
     display: flex;
     flex-direction: column;
     align-items: center;
