@@ -4,5 +4,12 @@ class Day < ApplicationRecord
   has_one_attached :highlight
 
   include PgSearch::Model
-  multisearchable against: [:highlight, :name]
+  pg_search_scope :global_search,
+  against: [ :name, :highlight ],
+  associated_against: {
+    tasks: [ :description ]
+  },
+  using: {
+    tsearch: { prefix: true }
+  }
 end

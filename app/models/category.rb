@@ -4,7 +4,4 @@ class Category < ApplicationRecord
 
   validates :name, presence: true
 
-  include PgSearch::Model
-  multisearchable against: [:name]
-
 end
