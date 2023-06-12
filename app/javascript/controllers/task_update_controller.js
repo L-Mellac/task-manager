@@ -2,22 +2,29 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="task-update"
 export default class extends Controller {
-  static targets = ["categoriesPopup", "deleteBtn"]
+  static targets = ["categoriesPopup", "deleteButton"]
+  static values = { taskId: Number }
 
   connect() {
-    console.log("hello")
+    this.csrfHeader = {"X-CSRF-Token": document.getElementsByName("csrf-token")[0].content}
   }
 
   toggleCategoriesPopup() {
     this.categoriesPopupTarget.classList.toggle("hidden");
   }
 
-  showDeleteButton() {
-    this.deleteBtnTarget.classList.remove("hidden");
+  toggleDeleteButton() {
+    this.deleteButtonTarget.classList.toggle("hidden");
   }
 
-  hideDeleteButton() {
-    console.log("hiding delete button");
-    this.deleteBtnTarget.classList.add("hidden");
+  deleteTask(event) {
+    console.log("removing task without refreshing");
+    event.preventDefault();
+    fetch(`/tasks/${this.taskIdValue}`,
+    {
+      method: 'DELETE',
+      headers: this.csrfHeader
+    })
+    .then(this.element.remove())
   }
 }
