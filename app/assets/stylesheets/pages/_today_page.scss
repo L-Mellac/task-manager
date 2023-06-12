@@ -35,7 +35,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 40%;
+  width: 35%;
   padding-left: 2em;
   padding-bottom: 1em;
 }
@@ -78,23 +78,34 @@
   }
 }
 
+.tasks-and-new-container {
+  display: flex;
+  flex-direction: column;
+  width: 65%;
+  height: 85%;
+  padding-left: 7em;
+  padding-bottom: 1em;
+}
+
 .tasks-container {
+  padding-top: 2em;
   display: flex;
   flex-direction: column;
   gap: 2em;
   align-items: start;
-  width: 60%;
-  padding-left: 7em;
+  width: 100%;
+  flex-wrap: wrap;
+  height: 100%;
+}
 
-  .new-task-input {
-    background-color: $transparent;
-    border: none;
-    color: $black;
-    border-bottom: 1px solid $black;
-    font-size: 3em;
-    &:focus {
-      outline: none;
-    }
+.new-task-input {
+  background-color: $transparent;
+  border: none;
+  color: $black;
+  border-bottom: 1px solid $black;
+  font-size: 3em;
+  &:focus {
+    outline: none;
   }
 }
 

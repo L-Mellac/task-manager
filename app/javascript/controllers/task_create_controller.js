@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="task-create"
 export default class extends Controller {
-  static targets = ["inputField", "newTaskForm"]
+  static targets = ["inputField", "tasksContainer"]
   static values = { dayId: Number }
 
   connect() {
@@ -22,7 +22,7 @@ export default class extends Controller {
     })
     .then(response => response.text())
     .then((task) => {
-      this.newTaskFormTarget.insertAdjacentHTML('afterend', task);
+      this.tasksContainerTarget.insertAdjacentHTML('afterbegin', task);
     })
   }
 }

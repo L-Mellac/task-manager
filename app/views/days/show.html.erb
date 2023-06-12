@@ -31,17 +31,19 @@
     </div>
   </div>
 
-  <div class="tasks-container"
+  <div class="tasks-and-new-container"
        data-controller="task-create"
        data-task-create-day-id-value=<%=@day.id%>>
-    <form data-action="submit->task-create#createTask"
-          data-task-create-target="newTaskForm">
-      <input type="text" placeholder="type here to add a new task" class="new-task-input" data-task-create-target="inputField">
-    </form>
-
-    <% @day.tasks.reverse_each do |task| %>
-      <%= render partial: "task", locals: { task: task, categories: @categories, day: @day} %>
-    <% end %>
+    <div class="new-task-container">
+      <form data-action="submit->task-create#createTask">
+        <input type="text" placeholder="type here to add a new task" class="new-task-input" data-task-create-target="inputField">
+      </form>
     </div>
 
+    <div class="tasks-container" data-task-create-target="tasksContainer">
+      <% @day.tasks.reverse_each do |task| %>
+        <%= render partial: "task", locals: { task: task, categories: @categories, day: @day} %>
+      <% end %>
+    </div>
+  </div>
 </div>
