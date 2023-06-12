@@ -1,7 +1,7 @@
 .progress-circle {
   border-radius: 100%;
   position: fixed;
- 
+  z-index: -10;
 
   &.one {
     opacity: 75%;

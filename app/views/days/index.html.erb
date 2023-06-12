@@ -1,6 +1,6 @@
-<div class="navbar" >
+<div class="navbar" data-controller="hotdog-navigation-progress" data-action="click->hotdog-navigation-progress#toggleMenu">
 
-  <div class="inner-navbar" data-controller="hotdog-navigation-progress" data-action="click->hotdog-navigation-progress#toggleMenu">
+  <div class="inner-navbar">
 
     <div id="hotdog-menu" data-hotdog-navigation-progress-target="threeBars">
       <div class="bar-top"></div>
@@ -8,8 +8,8 @@
       <div class="bar-bottom"></div>
     </div>
 
-    <a href="/days" class="option-1 hidden" data-hotdog-navigation-progress-target="todayLink">today</a>
-    <a class="option-2 hidden" data-hotdog-navigation-progress-target="customizeLink">customize</a>
+    <a href="/days/<%= Day.last.id %>" class="p-option-1 hidden" data-hotdog-navigation-progress-target="todayLink">today</a>
+    <a class="p-option-2 hidden" data-hotdog-navigation-progress-target="customizeLink">customize</a>
 
     <div class="progress-circle">
       <div class="progress-circle one" data-hotdog-navigation-progress-target="circle1"></div>
@@ -20,7 +20,7 @@
 
   </div>
 
-  <div class="search-bar"[SEARCH - TOP RIGHT]>
+  <div class="search-bar">
     <%= form_with url: days_path, method: :get, class: "d-flex" do %>
     <%= text_field_tag :query,
       params[:query],
