@@ -12,12 +12,12 @@ class DaysController < ApplicationController
 
   def index
     create
-    @days = current_user.days.order(created_at: :asc)
+    @days = current_user.days.order(created_at: :desc)
     # @categories = Category.find(params[:id])
     if params[:query].present?
       @days = Day.global_search(params[:query])
     else
-      @days = Day.all
+      @days = current_user.days.order(created_at: :desc)
     end
 
 
