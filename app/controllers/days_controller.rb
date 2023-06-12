@@ -20,15 +20,6 @@ class DaysController < ApplicationController
       @days = current_user.days.order(created_at: :desc)
     end
 
-
-    # if params[:query].present?
-    #   sql_query = "highlight ILIKE :query OR name ILIKE :query"
-    #   @days = Day.where(sql_query, query: "%#{params[:query]}%")
-    # else
-    #   @days = Day.all
-    # end
-
-
   end
 
   def show

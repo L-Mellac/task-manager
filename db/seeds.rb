@@ -8,7 +8,6 @@ Day.destroy_all
 User.destroy_all
 puts "seeds cleaned"
 
-
 user1 = User.create!(email: "marco@lewagon.com", password: "123456")
 user2 = User.create!(email: "ebi@lewagon.com", password: "123456")
 
