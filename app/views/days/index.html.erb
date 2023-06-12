@@ -11,11 +11,16 @@
     <a href="/days/<%= Day.last.id %>" class="p-option-1 hidden" data-hotdog-navigation-progress-target="todayLink">today</a>
     <a class="p-option-2 hidden" data-hotdog-navigation-progress-target="customizeLink">customize</a>
 
+
     <div class="progress-circle">
       <div class="progress-circle one" data-hotdog-navigation-progress-target="circle1"></div>
       <div class="progress-circle two" data-hotdog-navigation-progress-target="circle2"></div>
       <div class="progress-circle three" data-hotdog-navigation-progress-target="circle3"></div>
       <div class="progress-circle four" data-hotdog-navigation-progress-target="circle4"></div>
+    </div>
+
+    <div class="popup" data-controller="popup">
+      <p> Back to today </p>
     </div>
 
   </div>
