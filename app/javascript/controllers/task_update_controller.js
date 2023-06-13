@@ -27,9 +27,14 @@ export default class extends Controller {
     this.priorityButtonTarget.classList.add("btn-hidden");
   }
 
-  togglePrioritySelector() {
+  showPrioritySelector() {
     this.priorityButtonTarget.classList.add("hidden");
-    this.prioritySelectorTarget.classList.toggle("hidden");
+    this.prioritySelectorTarget.classList.remove("hidden");
+  }
+
+  hidePrioritySelector() {
+    this.priorityButtonTarget.classList.remove("hidden");
+    this.prioritySelectorTarget.classList.add("hidden");
   }
 
   updatePriority(event) {
@@ -42,6 +47,7 @@ export default class extends Controller {
         'Content-Type': 'application/json'},
       body: JSON.stringify({ task: {priority: priority} })
     })
+    .then(this.hidePrioritySelector())
   }
 
   deleteTask(event) {
