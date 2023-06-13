@@ -182,28 +182,30 @@
   .category-btn-and-color-popup {
     position: relative;
 
-      .category-btn {
-        background-color: $transparent;
-        border: none;
-      }
+    .category-btn {
+      background-color: $transparent;
+      border: none;
+    }
 
-      .category-color-popup {
+    .category-color-popup {
+      position: absolute;
+      left: -1.25em;
+      top: 0.5em;
+      width: 1em;
+      height: 1em;
+      cursor: pointer;
+
+      i {
         position: absolute;
-        left: -1.25em;
-        top: 0.5em;
         width: 1em;
         height: 1em;
-
-        i {
-          position: absolute;
-          width: 1em;
-          height: 1em;
-        }
-        .category-color-picker {
+      }
+      .category-color-picker {
         opacity: 0;;
         width: 1em;
         height: 1em;
         z-index: 5;
+        position: absolute;
       }
     }
   }
