@@ -2,12 +2,24 @@
       data-controller="task-update"
       data-task-update-task-id-value=<%= task.id %>
       data-action="mouseover->task-update#togglePopups mouseout->task-update#togglePopups">
-  <div class="categories hidden" data-task-update-target="categoriesPopup">
+
+  <div class="categories-menu hidden" data-task-update-target="categoriesPopup">
     <% categories.each do |category| %>
-      <form action=<%="/tasks/#{task.id}"%> method="patch">
-        <button type="submit" class="category-btn" name=task[category_id] value=<%= category.id %> style="color: <%= category.color if category.color.present? %>"><%= category.name %></button>
-        <input type="hidden" name="authenticity_token", value="<%= form_authenticity_token %>">
-      </form>
+
+      <div class="category-btn-and-color-popup">
+        <form action=<%="/tasks/#{task.id}"%> method="patch">
+          <button type="submit" class="category-btn" name=task[category_id] value=<%= category.id %> style="color: <%= category.color if category.color.present? %>"><%= category.name %></button>
+          <input type="hidden" name="authenticity_token", value="<%= form_authenticity_token %>">
+        </form>
+
+        <div class="category-color-popup">
+          <i class="fa-solid fa-palette category-color-btn"></i>
+          <form action=<%="/categories/#{category.id}"%> method="patch" >
+            <input type="color" name="category[color]" class="category-color-picker">
+            <input type="hidden" name="authenticity_token", value="<%= form_authenticity_token %>">
+          </form>
+        </div>
+      </div>
     <% end %>
     <form action=<%="/tasks/#{task.id}"%> method="patch">
       <button type="submit" class="category-btn" name=task[category_id] value=<%= nil %>>(No Category)</button>

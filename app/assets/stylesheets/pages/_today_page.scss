@@ -77,7 +77,7 @@
   border: solid 0.25em rgba($color: $black, $alpha: 0.5);
   border-radius: 50%;
   object-position: center;
-  background-size: cover; 
+  background-size: cover;
   position: relative;
 
   p {
@@ -161,7 +161,7 @@
   }
 }
 
-.categories {
+.categories-menu {
   position: absolute;
   left: -9em;
   top: -50%;
@@ -177,6 +177,35 @@
   .category-btn {
     background-color: $transparent;
     border: none;
+  }
+
+  .category-btn-and-color-popup {
+    position: relative;
+
+      .category-btn {
+        background-color: $transparent;
+        border: none;
+      }
+
+      .category-color-popup {
+        position: absolute;
+        left: -1.25em;
+        top: 0.5em;
+        width: 1em;
+        height: 1em;
+
+        i {
+          position: absolute;
+          width: 1em;
+          height: 1em;
+        }
+        .category-color-picker {
+        opacity: 0;;
+        width: 1em;
+        height: 1em;
+        z-index: 5;
+      }
+    }
   }
 }
 
