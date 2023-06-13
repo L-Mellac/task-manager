@@ -1,11 +1,11 @@
 <div class="task"
       data-controller="task-update"
       data-task-update-task-id-value=<%= task.id %>
-      data-action="mouseover->task-update#toggleDeleteButton mouseout->task-update#toggleDeleteButton">
+      data-action="mouseover->task-update#togglePopups mouseout->task-update#togglePopups">
   <div class="categories hidden" data-task-update-target="categoriesPopup">
     <% categories.each do |category| %>
       <form action=<%="/tasks/#{task.id}"%> method="patch">
-        <button type="submit" class="category-btn" name=task[category_id] value=<%= category.id %>><%= category.name %></button>
+        <button type="submit" class="category-btn" name=task[category_id] value=<%= category.id %> style="color: <%= category.color if category.color.present? %>"><%= category.name %></button>
         <input type="hidden" name="authenticity_token", value="<%= form_authenticity_token %>">
       </form>
     <% end %>
@@ -21,7 +21,7 @@
   </div>
 
   <form action=<%="/tasks/#{task.id}"%> method="patch">
-    <div class="category" data-action="click->task-update#toggleCategoriesPopup"><%= task.category.name.first unless task.category.nil? %></div>
+    <div class="category" data-action="click->task-update#toggleCategoriesPopup" style="background-color: <%= task.category.color if task.category.present? && task.category.color.present? %>"><%= task.category.name.first unless task.category.nil? %></div>
 
     <input type="text" name="task[description]" value="<%=task.description%>">
 
@@ -33,4 +33,21 @@
   <i class="fa-solid fa-circle-xmark delete-btn hidden"
       data-task-update-target="deleteButton"
       data-action="click->task-update#deleteTask"></i>
+
+  <div class="update-priority-button">
+
+    <i class="fa-solid fa-circle-exclamation hidden"
+       data-task-update-target="priorityButton"
+       data-action="click->task-update#togglePrioritySelector"></i>
+
+    <div class="priority-options hidden"
+         data-task-update-target="prioritySelector">
+      <span data-action="click->task-update#updatePriority">1</span>
+      <span data-action="click->task-update#updatePriority">2</span>
+      <span data-action="click->task-update#updatePriority">3</span>
+      <span data-action="click->task-update#updatePriority">4</span>
+      <span data-action="click->task-update#updatePriority">5</span>
+    </div>
+
+  </div>
 </div>

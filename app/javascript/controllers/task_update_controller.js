@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="task-update"
 export default class extends Controller {
-  static targets = ["categoriesPopup", "deleteButton"]
+  static targets = ["categoriesPopup", "deleteButton", "priorityButton", "prioritySelector"]
   static values = { taskId: Number }
 
   connect() {
@@ -13,12 +13,29 @@ export default class extends Controller {
     this.categoriesPopupTarget.classList.toggle("hidden");
   }
 
-  toggleDeleteButton() {
+  togglePopups() {
     this.deleteButtonTarget.classList.toggle("hidden");
+    this.priorityButtonTarget.classList.toggle("hidden");
+  }
+
+  togglePrioritySelector() {
+    this.priorityButtonTarget.classList.add("hidden");
+    this.prioritySelectorTarget.classList.toggle("hidden");
+  }
+
+  updatePriority(event) {
+    const priority = event.currentTarget.innerText;
+    fetch(`/tasks/${this.taskIdValue}`,
+    {
+      method: 'PATCH',
+      headers: {
+        ...this.csrfHeader,
+        'Content-Type': 'application/json'},
+      body: JSON.stringify({ task: {priority: priority} })
+    })
   }
 
   deleteTask(event) {
-    console.log("removing task without refreshing");
     event.preventDefault();
     fetch(`/tasks/${this.taskIdValue}`,
     {

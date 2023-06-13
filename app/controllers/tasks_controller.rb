@@ -3,7 +3,9 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     day = Day.find(params[:day_id])
     @task.day = day
-    @task.save!
+    unless @task.save!
+      flash[:alert] = @task.errors.full_messages
+    end
 
     respond_to do |format|
       format.html { redirect_to day_path(day) }
