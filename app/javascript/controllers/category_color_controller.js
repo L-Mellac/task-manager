@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="category"
 export default class extends Controller {
-  static targets = [ "colorSelectorPopup", "colorPickerInput" ]
+  static targets = [ "colorSelectorPopup", "colorPickerInput", "categoryName"]
   static values = { categoryId: Number }
 
   connect() {
@@ -22,6 +22,6 @@ export default class extends Controller {
         ...this.csrfHeader,
         'Content-Type': 'application/json'},
       body: JSON.stringify({ category: {color: color} })
-    })
+    }).then(this.categoryNameTarget.style.color = color)
   }
 }

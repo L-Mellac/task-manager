@@ -12,12 +12,13 @@
         <form action=<%="/tasks/#{task.id}"%> method="patch">
           <button type="submit" class="category-btn" name=task[category_id] value=<%= category.id %>
                   style="color: <%= category.color if category.color.present? %>"
-                  data-action="mouseover->category-color#toggleColorPopup mouseout->category-color#toggleColorPopup">
+                  data-action="mouseover->category-color#toggleColorPopup mouseout->category-color#toggleColorPopup"
+                  data-category-color-target="categoryName">
                   <%= category.name %></button>
           <input type="hidden" name="authenticity_token", value="<%= form_authenticity_token %>">
         </form>
 
-        <div class="category-color-popup"
+        <div class="category-color-popup hidden"
              data-category-color-target="colorSelectorPopup">
           <i class="fa-solid fa-palette category-color-btn"></i>
           <input type="color" name="category[color]" class="category-color-picker"
