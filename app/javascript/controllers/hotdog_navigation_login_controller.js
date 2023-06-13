@@ -13,7 +13,6 @@ export default class extends Controller {
   toggleLogin() {
     this.loginFormTarget.classList.toggle("hidden");
     this.threeBarsTarget.classList.toggle("hidden");
-
   }
 
   onInputFocus() {
