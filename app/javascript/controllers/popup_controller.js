@@ -1,10 +1,12 @@
-import { Controller } from "@hotwired/stimulus"
+// import { Controller } from "@hotwired/stimulus"
 
-export default class extends Controller {
+// export default class extends Controller {
 
-  static targets = [ "popup" ]
+//   static targets = [ "popup" ]
 
-    togglePopup() {
-      this.element.remove();
-  }
-}
+//     togglePopup() {
+//       this.element.remove();
+//   }
+// }
+
+
