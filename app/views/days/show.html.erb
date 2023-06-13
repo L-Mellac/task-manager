@@ -1,6 +1,6 @@
-<div class="navbar" data-controller="hotdog-navigation" data-action="click->hotdog-navigation#toggleMenu">
+<div class="navbar" data-controller="hotdog-navigation" data-action="click@window->hotdog-navigation#hideMenu" >
 
-  <div id="hotdog-menu" data-hotdog-navigation-target="threeBars">
+  <div id="hotdog-menu" data-hotdog-navigation-target="threeBars" data-action="click->hotdog-navigation#showMenu">
     <div class="bar-top"></div>
     <div class="bar-long"></div>
     <div class="bar-bottom"></div>
