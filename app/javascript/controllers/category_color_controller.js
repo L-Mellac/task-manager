@@ -9,8 +9,14 @@ export default class extends Controller {
     this.csrfHeader = {"X-CSRF-Token": document.getElementsByName("csrf-token")[0].content}
   }
 
-  toggleColorPopup() {
-    this.colorSelectorPopupTarget.classList.toggle("hidden");
+  showColorPopup() {
+    this.colorSelectorPopupTarget.classList.remove("btn-hidden");
+    this.colorSelectorPopupTarget.classList.add("btn-active");
+  }
+
+  hideColorPopup() {
+    this.colorSelectorPopupTarget.classList.remove("btn-active");
+    this.colorSelectorPopupTarget.classList.add("btn-hidden");
   }
 
   submitColorChange() {

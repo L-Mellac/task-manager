@@ -13,9 +13,18 @@ export default class extends Controller {
     this.categoriesPopupTarget.classList.toggle("hidden");
   }
 
-  togglePopups() {
-    this.deleteButtonTarget.classList.toggle("hidden");
-    this.priorityButtonTarget.classList.toggle("hidden");
+  showPopups() {
+    this.deleteButtonTarget.classList.remove("btn-hidden");
+    this.priorityButtonTarget.classList.remove("btn-hidden");
+    this.deleteButtonTarget.classList.add("btn-active");
+    this.priorityButtonTarget.classList.add("btn-active");
+  }
+
+  hidePopups() {
+    this.deleteButtonTarget.classList.remove("btn-active");
+    this.priorityButtonTarget.classList.remove("btn-active");
+    this.deleteButtonTarget.classList.add("btn-hidden");
+    this.priorityButtonTarget.classList.add("btn-hidden");
   }
 
   togglePrioritySelector() {
