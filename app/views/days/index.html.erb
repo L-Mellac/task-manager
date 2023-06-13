@@ -49,7 +49,7 @@
             <div class="progress-content">
               <% display_date = Date.parse(day.created_at.to_s)%>
               <% formatted_date = display_date.strftime('%e %B') %>
-              <h2 class="progress-title"> <%= formatted_date%></h2>
+             <h2 class="progress-title"> <%= formatted_date %></h2>
               <p class="progress-copy"><%= day.name %> </p>
               <%= link_to "View Day", day_path(day), class: "progress-btn" %>
             </div>

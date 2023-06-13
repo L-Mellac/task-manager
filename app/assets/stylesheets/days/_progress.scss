@@ -81,10 +81,14 @@ $bp-lg: 800px;
 :root {
   --d: 700ms;
   --e: cubic-bezier(0.19, 1, 0.22, 1);
-  --font-sans: $body-font, sans-serif;
+  --font-sans: $body-font;
   // --font-sans: 'Rubik', sans-serif;
-  --font-serif: $headers-font, serif;
+  --font-serif: $headers-font;
   // --font-serif: 'Cardo', serif;
+}
+
+.progress-content h2 {
+  font-family: $headers-font;
 }
 
 * {
