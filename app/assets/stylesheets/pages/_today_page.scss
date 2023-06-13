@@ -232,6 +232,16 @@
   padding: 0.5em;
   position: relative;
 
+  .stars {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.5em;
+    position: absolute;
+    top: 0.5em;
+    right: 6em;
+  }
+
   form {
     display: flex;
     align-items: center;

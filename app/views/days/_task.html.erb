@@ -48,6 +48,12 @@
     <input type="hidden" name="authenticity_token", value="<%= form_authenticity_token %>">
   </form>
 
+  <div class="stars">
+    <% (task.priority - 1).times do %>
+      <i class="fa-solid fa-star"></i>
+    <% end %>
+  </div>
+
   <i class="fa-solid fa-circle-xmark delete-btn btn-hidden"
       data-task-update-target="deleteButton"
       data-action="click->task-update#deleteTask"></i>
