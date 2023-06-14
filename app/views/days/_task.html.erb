@@ -43,7 +43,13 @@
 
     <input type="text" name="task[description]" value="<%=task.description%>">
 
-    <button type="submit" name="task[completed]" class="checkmark <%= 'done' if task.completed? %>" value=<%= !task.completed? %>></button>
+    <button type="submit" name="task[completed]" class="checkmark <%= 'done' if task.completed? %>" value=<%= !task.completed? %>>
+
+      <% if task.completed? %>
+        <i class="fa-solid fa-check"></i>
+      <% end %>
+
+    </button>
 
     <input type="hidden" name="authenticity_token", value="<%= form_authenticity_token %>">
   </form>
