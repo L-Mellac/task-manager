@@ -27,7 +27,7 @@ class DaysController < ApplicationController
     @categories = Category.all
     @day = Day.find(params[:id])
     @task = Task.new
-    @tasks = @day.tasks
+    @tasks = @day.tasks.order(priority: :asc)
     @category = Category.new
   end
 

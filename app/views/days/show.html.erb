@@ -68,7 +68,7 @@
     </div>
 
     <div class="tasks-container" data-task-create-target="tasksContainer">
-      <% @day.tasks.reverse_each do |task| %>
+      <% @tasks.each do |task| %>
         <%= render partial: "task", locals: { task: task, categories: @categories, day: @day} %>
       <% end %>
     </div>
