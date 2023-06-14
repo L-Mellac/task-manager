@@ -59,8 +59,9 @@
 }
 #progress {
   position:absolute;
+  margin-top: 10px;
   left: 3%;
-  top: 82%;
+  top: 70%;
   bottom: 0%;
   font-family: $headers-font;
   font-style: normal;
@@ -70,7 +71,7 @@
   leading-trim: both;
   text-edge: cap;
   color: #062321;
-  z-index: 5;
+  z-index: -1;
 }
 
 
@@ -222,6 +223,7 @@ $bp-lg: 800px;
   color: white;
   background-color: black;
   border: none;
+  border-radius: 10px;
 
   &:hover {
     background-color: lighten(black, 5%);

@@ -43,7 +43,8 @@
         <% if day.highlight.present? %>
           <div class="progress-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path day.highlight.key, height: 300, crop: :fill %>')">
         <% else %>
-          <div class ="progress-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+          <div class ="progress-card" style="background-color: #81EBE0;">
+          <%# <div class ="progress-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)"> %>
         <% end %>
 
             <div class="progress-content">
@@ -60,6 +61,6 @@
     </div>
 
   </div>
-  <h1 id="progress">progress.</h1>
 </div>
+  <h1 id="progress">progress.</h1>
 </div>
