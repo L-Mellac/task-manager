@@ -9,7 +9,7 @@
        data-controller="category-create" 
        data-category-create-task-id-value=<%=task.id%>>
     
-    <% categories.each do |category| %>
+    <% categories.reverse_each do |category| %>
       <%= render partial: "category", locals: { category: category, task_id: task.id} %>
     <% end %>
 
