@@ -5,7 +5,7 @@ class Day < ApplicationRecord
 
   include PgSearch::Model
   pg_search_scope :global_search,
-  against: [ :name, :highlight ],
+  against: [ :name, :highlight, :day_date ],
   associated_against: {
     tasks: [ :description ]
   },
