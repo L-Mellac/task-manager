@@ -45,7 +45,8 @@
     <input type="text" name="task[description]" value="<%=task.description%>">
 
     <button type="submit" name="task[completed]" class="checkmark <%= 'done' if task.completed? %>" value=<%= !task.completed? %>
-            data-task-update-target="checkmark">
+            data-task-update-target="checkmark"
+            data-action="click->task-update#completeTask">
       <% if task.completed? %>
         <i class="fa-solid fa-check"></i>
       <% end %>

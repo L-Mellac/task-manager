@@ -59,6 +59,15 @@ export default class extends Controller {
     this.checkmarkTarget.style.borderColor = priorityColors[priority];
   }
 
+  completeTask() {
+    this.checkmarkTarget.classList.toggle("done");
+    if (this.checkmarkTarget.classList.contains("done")) {
+      this.checkmarkTarget.innerHTML = '<i class="fas fa-check"></i>';
+    } else {
+      this.checkmarkTarget.innerHTML = '';
+    }
+  }
+
   deleteTask(event) {
     event.preventDefault();
     fetch(`/tasks/${this.taskIdValue}`,
