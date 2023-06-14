@@ -11,9 +11,9 @@ puts "seeds cleaned"
 marco = User.create!(email: "marco@lewagon.com", password: "123456")
 
 Category.create!(name: "Chores", user_id: marco.id)
+Day.create!(created_at: DateTime.parse("2023-05-19 12:00"), user_id: marco.id)
 
 # test_image = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg")
-# day = Day.create!(created_at: DateTime.parse("2023-05-19 12:00"), user_id: marco.id)
 # day.highlight.attach(io: test_image, filename: "nes.png", content_type: "image/png")
 
 # test_image = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg")
