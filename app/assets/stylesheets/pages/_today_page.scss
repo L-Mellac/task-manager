@@ -293,7 +293,10 @@
     height: 2em;
 
     &.done {
-      background-color: $turquoise_shade
+      background-color: $transparent;
+      border-style: solid;
+      border-width: 3px;
+      // background-color: $turquoise_shade
     }
   }
 
