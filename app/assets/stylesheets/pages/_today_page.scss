@@ -9,6 +9,8 @@
     position: fixed;
     left: 9em;
     top: 4em;
+    z-index: 10;
+
   }
 
   .option-2 {
@@ -19,6 +21,8 @@
     position: fixed;
     top: 9em;
     left: 4em;
+    z-index: 10;
+
   }
 
   .signed-in-option-1 {
@@ -119,6 +123,8 @@
 .day-name-and-date {
   position: relative;
   font-family: $headers-font;
+  width: 80%;
+  float: left;
 
   input[type=text] {
     font-size: 7.5em;
@@ -135,7 +141,7 @@
   h2 {
     position: absolute;
     font-size: 2em;
-    left: 0em;
+    // left: -0.5em;
     bottom: -0.2em;
     color: $black;
   }
