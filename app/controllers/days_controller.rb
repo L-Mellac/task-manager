@@ -6,7 +6,7 @@ class DaysController < ApplicationController
 
     missing_days = (DateTime.now - last_day).to_i
     missing_days.times do |i|
-      Day.create!(user_id: current_user.id, created_at: Date.today - missing_days + i + 1)
+      Day.create!(user_id: current_user.id, created_at: Date.today - missing_days + i + 1, day_date: (Date.today - missing_days + i + 1).strftime("%A %e %B %Y"))
     end
 
     respond_to do |format|
