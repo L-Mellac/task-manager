@@ -2,25 +2,28 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="hotdog-navigation"
 export default class extends Controller {
-  static targets = ["threeBars", "progressLink", "customizeLink", "circle1", "circle2", "circle3", "circle4"];
+  static targets = ["threeBars", "option1", "option2", "option3", "circle1", "circle2", "circle3", "circle4"];
+  static values = { loggedIn: Boolean }
 
-  showMenu() {
-    this.threeBarsTarget.classList.toggle("hidden");
-    this.progressLinkTarget.classList.toggle("hidden");
-    // this.customizeLinkTarget.classList.toggle("hidden");
+  toggleMenu() {
+    if (this.loggedInValue) {
+      this.option1Target.classList.toggle("hidden");
+      this.option2Target.classList.toggle("hidden");
+      if (this.hasOption3Target) this.option3Target.classList.toggle("hidden");
 
-    this.circle1Target.classList.toggle("moved");
-    this.circle2Target.classList.toggle("moved");
-    this.circle3Target.classList.toggle("moved");
-    this.circle4Target.classList.toggle("moved");
+      this.circle1Target.classList.toggle("moved");
+      this.circle2Target.classList.toggle("moved");
+      this.circle3Target.classList.toggle("moved");
+      this.circle4Target.classList.toggle("moved");
+    }
   }
 
   hideMenu(event) {
-    console.log(event.target)
-    if (event.target.id != "hotdog-menu" && event.target.parentElement.id != "hotdog-menu") {
+    if (event.target.closest(".navbar") == null || event.target.classList.contains("navbar")) {
       this.threeBarsTarget.classList.remove("hidden");
-      this.progressLinkTarget.classList.add("hidden");
-      // this.customizeLinkTarget.classList.add("hidden");
+      this.option1Target.classList.add("hidden");
+      this.option2Target.classList.add("hidden");
+      if (this.hasOption3Target) this.option3Target.classList.add("hidden");
 
       this.circle1Target.classList.remove("moved");
       this.circle2Target.classList.remove("moved");

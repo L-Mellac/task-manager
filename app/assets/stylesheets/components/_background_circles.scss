@@ -1,0 +1,129 @@
+.bg-circles {
+  .one {
+    border-radius: 100%;
+    position: fixed;
+    opacity: 75%;
+    width: 50vh;
+    height: 50vh;
+    z-index: -10;
+    background-color:#EDFCFB;
+    &.landing {
+      top: -25vh;
+      left: -25vh;
+    }
+    &.today {
+      bottom: -25vh;
+      right: -25vh;
+      &.moved {
+        top: -25vh;
+        left: -25vh;
+        z-index: 20;
+      }
+    }
+    &.progress {
+      bottom: -25vh;
+      left: -25vh;
+      &.moved {
+        top: -25vh;
+        left: -25vh;
+        z-index: 20;
+      }
+    }
+  }
+
+  .two {
+    border-radius: 100%;
+    position: fixed;
+    opacity: 50%;
+    width: 100vh;
+    height: 100vh;
+    z-index: -11;
+    background-color:#EDFCFB;
+    &.landing {
+      top: -50vh;
+      left: -50vh;
+    }
+    &.today {
+      bottom: -50vh;
+      right: -50vh;
+      &.moved {
+        top: -50vh;
+        left: -50vh;
+        z-index: 19;
+      }
+    }
+    &.progress {
+      bottom: -50vh;
+      left: -50vh;
+      &.moved {
+        top: -50vh;
+        left: -50vh;
+        z-index: 19;
+      }
+    }
+  }
+
+  .three {
+    border-radius: 100%;
+    position: fixed;
+    opacity: 25%;
+    width: 150vh;
+    height: 150vh;
+    z-index: -12;
+    background-color:#EDFCFB;
+    &.landing {
+      top: -75vh;
+      left: -75vh;
+    }
+    &.today {
+      bottom: -75vh;
+      right: -75vh;
+      &.moved {
+        top: -75vh;
+        left: -75vh;
+        z-index: 18;
+      }
+    }
+    &.progress {
+      bottom: -75vh;
+      left: -75vh;
+      &.moved {
+        top: -75vh;
+        left: -75vh;
+        z-index: 18;
+      }
+    }
+  }
+
+  .four {
+    border-radius: 100%;
+    position: fixed;
+    opacity: 10%;
+    width: 200vh;
+    height: 200vh;
+    z-index: -13;
+    background-color:#EDFCFB;
+    &.landing {
+      top: -100vh;
+      left: -100vh;
+    }
+    &.today {
+      bottom: -100vh;
+      right: -100vh;
+      &.moved {
+        top: -100vh;
+        left: -100vh;
+        z-index: 17;
+      }
+    }
+    &.progress {
+      bottom: -100vh;
+      left: -100vh;
+      &.moved4 {
+        top: -100vh;
+        left: -100vh;
+        z-index: 17;
+      }
+    }
+  }
+}
