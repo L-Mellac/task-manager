@@ -1,0 +1,60 @@
+.navbar {
+  height: 15vh;
+  display: flex;
+  align-items: start;
+  padding-top: 0;
+
+  .option-1 {
+    font-family: $headers-font;
+    font-size: 1.5em;
+    color: $black;
+    text-decoration: none;
+    position: fixed;
+    left: 9em;
+    top: 4em;
+    z-index: 10;
+
+  }
+
+  .option-2 {
+    font-family: $headers-font;
+    font-size: 1.5em;
+    color: $black;
+    text-decoration: none;
+    position: fixed;
+    top: 9em;
+    left: 4em;
+    z-index: 10;
+
+  }
+
+  .signed-in-option-1 {
+    font-family: $headers-font;
+    font-size: 1.5em;
+    color: $black;
+    text-decoration: none;
+    position: fixed;
+    left: 9em;
+    top: 2em;
+  }
+
+  .signed-in-option-2 {
+    font-family: $headers-font;
+    font-size: 1.5em;
+    color: $black;
+    text-decoration: none;
+    position: fixed;
+    top: 5.5em;
+    left: 7em;
+  }
+
+  .signed-in-option-3 {
+    font-family: $headers-font;
+    font-size: 1.5em;
+    color: $black;
+    text-decoration: none;
+    position: fixed;
+    top: 9em;
+    left: 4em;
+  }
+}
