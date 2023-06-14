@@ -8,7 +8,7 @@
   </div>
 
   <% if user_signed_in? %>
-    <%= link_to 'Log out', destroy_user_session_path, data: { turbo_method: :delete, hotdog_navigation_login_target: 'logoutLink' }, class: 'signed-in-option-1' %>
+    <%= link_to 'log out', destroy_user_session_path, data: { turbo_method: :delete, hotdog_navigation_login_target: 'logoutLink' }, class: 'signed-in-option-1' %>
 
     <a href="/days" class="signed-in-option-2">progress</a>
     <a href="/days/<%= @day.id %>" class="signed-in-option-3">today</a>
@@ -26,8 +26,8 @@
      </a>
   <% end %>
 
-  <form action="/user/sign_in" method="post" class="login-form hidden" 
-        data-hotdog-navigation-login-target="loginForm" 
+  <form action="/user/sign_in" method="post" class="login-form hidden"
+        data-hotdog-navigation-login-target="loginForm"
         data-controller="days-generation"
         data-action="click->hotdog-navigation-login#onInputFocus submit->days-generation#loginAndGenerateMissingDays">
     <h1>log in</h1>
