@@ -5,8 +5,6 @@
 //   static targets = [ "popup" ]
 
 //     togglePopup() {
-//       this.element.remove();
+
 //   }
 // }
-
-

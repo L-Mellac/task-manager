@@ -9,6 +9,8 @@
     position: fixed;
     left: 9em;
     top: 4em;
+    z-index: 10;
+
   }
 
   .option-2 {
@@ -19,6 +21,8 @@
     position: fixed;
     top: 9em;
     left: 4em;
+    z-index: 10;
+
   }
 
   .signed-in-option-1 {
@@ -77,7 +81,7 @@
   border: solid 0.25em rgba($color: $black, $alpha: 0.5);
   border-radius: 50%;
   object-position: center;
-  background-size: cover; 
+  background-size: cover;
   position: relative;
 
   p {
@@ -108,6 +112,8 @@
 .day-name-and-date {
   position: relative;
   font-family: $headers-font;
+  width: 80%;
+  float: left;
 
   input[type=text] {
     font-size: 7.5em;
@@ -124,7 +130,7 @@
   h2 {
     position: absolute;
     font-size: 2em;
-    left: 0em;
+    // left: -0.5em;
     bottom: -0.2em;
     color: $black;
   }

@@ -6,7 +6,7 @@
     <div class="bar-bottom"></div>
   </div>
 
-  <a href="/days" class="option-1 hidden" data-hotdog-navigation-target="progressLink">today</a>
+  <a href="/days" class="option-1 hidden" data-hotdog-navigation-target="progressLink">progress</a>
   <a class="option-2 hidden" data-hotdog-navigation-target="customizeLink">customize</a>
 
   <div class="circle-today">
@@ -33,13 +33,23 @@
       </form>
     </div>
 
-    <div class="day-name-and-date">
-      <h2><%= Date.parse(@day.created_at.to_s) %></h2>
-      <form action=<%="/days/#{@day.id}"%> method="patch">
-        <input type="text" name="day[name]" value=<%= @day.name.nil? ? "edit" : @day.name %>>
-        <input type="hidden" name="authenticity_token", value="<%= form_authenticity_token %>">
-      </form>
+
+    <div data-controller="edit">
+      <div id="edit-container" data-edit-target="editbutton">
+        <button type="button" class="btn" data-action="click->edit#edit">
+          <i id="editIcon" class="fa-regular fa-pen-to-square"></i>
+        </button>
+      </div>
+
+      <div class="day-name-and-date">
+        <h2><%= Date.parse(@day.created_at.to_s) %></h2>
+        <form action=<%="/days/#{@day.id}"%> method="patch">
+          <input id="edit" data-edit-target="edit" disabled type="text" name="day[name]" value=<%= @day.name.nil? ? "today." : @day.name %>>
+          <input type="hidden" name="authenticity_token", value="<%= form_authenticity_token %>">
+        </form>
+      </div>
     </div>
+
   </div>
 
   <div class="tasks-and-new-container"
