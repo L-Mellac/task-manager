@@ -9,7 +9,7 @@ export default class extends Controller {
   toggleMenu() {
     this.threeBarsTarget.classList.toggle("hidden");
     this.todayLinkTarget.classList.toggle("hidden");
-    this.customizeLinkTarget.classList.toggle("hidden");
+    // this.customizeLinkTarget.classList.toggle("hidden");
     this.circle1Target.classList.toggle("moved1");
     this.circle2Target.classList.toggle("moved2");
     this.circle3Target.classList.toggle("moved3");
