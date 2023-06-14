@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="hotdog-navigation"
 export default class extends Controller {
-  static targets = ["threeBars", "loginLink", 'logoutLink', "loginForm", "signupForm", "signupLink", "circle1", "circle2", "circle3", "circle4"];
+  static targets = ["threeBars", "loginLink", "signupLink", "loginForm", "signupForm", "circle1", "circle2", "circle3", "circle4"];
 
   toggleMenu() {
     this.threeBarsTarget.classList.toggle("hidden");
@@ -10,23 +10,28 @@ export default class extends Controller {
     this.signupLinkTarget.classList.toggle("hidden");
   }
 
-  toggleLogin() {
+  openLoginForm() {
+    console.log("opening login form");
     this.loginFormTarget.classList.toggle("hidden");
-    this.threeBarsTarget.classList.toggle("hidden");
-  }
-
-  onInputFocus() {
     this.threeBarsTarget.classList.toggle("hidden");
     this.loginLinkTarget.classList.toggle("hidden");
     this.signupLinkTarget.classList.toggle("hidden");
   }
 
-  toggleSignup() {
+  openSignupForm() {
     this.signupFormTarget.classList.toggle("hidden");
     this.threeBarsTarget.classList.toggle("hidden");
+    this.loginLinkTarget.classList.toggle("hidden");
+    this.signupLinkTarget.classList.toggle("hidden");
   }
 
-  toggleLogout() {
-    this.logoutLinkTarget.classList.toggle("hidden");
+  closeAll(event) {
+    if (event.target.closest(".navbar") == null) {
+      this.threeBarsTarget.classList.remove("hidden");
+      this.signupFormTarget.classList.add("hidden");
+      this.loginFormTarget.classList.add("hidden");
+      this.loginLinkTarget.classList.add("hidden");
+      this.signupLinkTarget.classList.add("hidden");
+    }
   }
 }

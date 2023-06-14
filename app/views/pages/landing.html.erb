@@ -1,6 +1,12 @@
-<div class="navbar" data-controller="hotdog-navigation-login" data-action="click->hotdog-navigation-login#toggleMenu">
-  <div id="hotdog-menu" data-hotdog-navigation-login-target="threeBars">
-      <div class="pulse">
+<div class="navbar"
+     data-controller="login-navigation hotdog-navigation"
+     data-hotdog-navigation-logged-in-value=<%= user_signed_in? %>
+     data-action="click@window->login-navigation#closeAll">
+
+  <div id="hotdog-menu"
+        data-login-navigation-target="threeBars"
+        data-action="click->login-navigation#toggleMenu click->hotdog-navigation#toggleMenu">
+      <div id="pulse">
         <div class="bar-top"></div>
         <div class="bar-long"></div>
         <div class="bar-bottom"></div>
@@ -8,28 +14,27 @@
   </div>
 
   <% if user_signed_in? %>
-    <%= link_to 'Log out', destroy_user_session_path, data: { turbo_method: :delete, hotdog_navigation_login_target: 'logoutLink' }, class: 'signed-in-option-1' %>
-
-    <a href="/days" class="signed-in-option-2">progress</a>
-    <a href="/days/<%= @day.id %>" class="signed-in-option-3">today</a>
-
+    <a href="/days" class="option-1 hidden" data-hotdog-navigation-target="option1">progress</a>
+    <a href="/days/<%= @day.id %>" class="option-2 hidden" data-hotdog-navigation-target="option2">today</a>
+    <%= link_to 'Log out', destroy_user_session_path, data: { turbo_method: :delete, hotdog_navigation_target: 'option3' }, class: 'option-3 hidden' %>
   <% else %>
     <a class="option-1 hidden"
-      data-hotdog-navigation-login-target="loginLink"
-      data-action="click->hotdog-navigation-login#toggleLogin">
+      data-login-navigation-target="loginLink"
+      data-action="click->login-navigation#openLoginForm">
       log in
     </a>
 
     <a class="option-2 hidden"
-      data-hotdog-navigation-login-target="signupLink"
+      data-login-navigation-target="signupLink"
+      data-action="click->login-navigation#openSignupForm"
       >sign up
-     </a>
+    </a>
   <% end %>
 
-  <form action="/user/sign_in" method="post" class="login-form hidden" 
-        data-hotdog-navigation-login-target="loginForm" 
+  <form action="/user/sign_in" method="post" class="login-form hidden"
+        data-login-navigation-target="loginForm"
         data-controller="days-generation"
-        data-action="click->hotdog-navigation-login#onInputFocus submit->days-generation#loginAndGenerateMissingDays">
+        data-action="submit->days-generation#loginAndGenerateMissingDays">
     <h1>log in</h1>
     <input type="text" placeholder="Username (required)" name="user[email]" data-days-generation-target="username">
     <input type="password" placeholder="Password (required)" name="user[password]" data-days-generation-target="password">
@@ -37,7 +42,8 @@
     <input type="submit" value="enter">
   </form>
 
-  <form action="" method="get" class="signup-form hidden" data-hotdog-navigation-login-target="signupForm" data-action="click->hotdog-navigation-login#onInputFocus">
+  <form action="" method="get" class="signup-form hidden"
+        data-login-navigation-target="signupForm">
     <h1>sign up</h1>
     <input type="text" placeholder="Email (required)">
     <input type="password" placeholder="Password (required)">
@@ -50,7 +56,9 @@
   <h2>a fun & simple way <br> to customise your <br>daily task.</h2>
 </div>
 
-<div class="circle-landing one"></div>
-<div class="circle-landing two"></div>
-<div class="circle-landing three"></div>
-<div class="circle-landing four"></div>
+<div class="bg-circles">
+  <div class="one landing"></div>
+  <div class="two landing"></div>
+  <div class="three landing"></div>
+  <div class="four landing"></div>
+</div>

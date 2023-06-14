@@ -41,7 +41,6 @@
     height: 0.5em;
     background-color: $black;
     border-radius: 0.25em;
-
   }
 
   .bar-bottom {
@@ -55,7 +54,7 @@
     animation: none;
   }
 
-  .pulse {
+  #pulse {
     display: flex;
     align-items: center;
     flex-direction: column;
