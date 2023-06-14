@@ -70,6 +70,8 @@
 .today-page-container {
   height: 85vh;
   display: flex;
+  padding-left: 2em;
+  padding-bottom: 2em;
 }
 
 .highlight-and-date-container {
@@ -78,8 +80,6 @@
   flex-direction: column;
   justify-content: space-between;
   width: 35%;
-  padding-left: 2em;
-  padding-bottom: 1em;
 }
 
 .highlight {
@@ -133,11 +133,9 @@
   }
 
   h2 {
-    position: absolute;
     font-size: 2em;
-    left: 0em;
-    bottom: -0.2em;
     color: $black;
+    line-height: 0;
   }
 }
 
