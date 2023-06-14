@@ -1,10 +1,11 @@
 <div class="navbar"
      data-controller="login-navigation hotdog-navigation"
      data-hotdog-navigation-logged-in-value=<%= user_signed_in? %>
-     data-action="click@window->login-navigation#closeAll">
+     data-action="click@window->login-navigation#closeAll click@window->hotdog-navigation#hideMenu">
 
   <div id="hotdog-menu"
         data-login-navigation-target="threeBars"
+        data-hotdog-navigation-target="threeBars"
         data-action="click->login-navigation#toggleMenu click->hotdog-navigation#toggleMenu">
       <div id="pulse">
         <div class="bar-top"></div>
@@ -49,16 +50,18 @@
     <input type="password" placeholder="Password (required)">
     <input type="submit" value="enter">
   </form>
+
+  <div class="bg-circles">
+    <div class="one landing"></div>
+    <div class="two landing"></div>
+    <div class="three landing"></div>
+    <div class="four landing"></div>
+  </div>
 </div>
+
+
 
 <div class="landing_container">
   <h1 class="heading">focus.</h1>
   <h2>a fun & simple way <br> to customise your <br>daily task.</h2>
-</div>
-
-<div class="bg-circles">
-  <div class="one landing"></div>
-  <div class="two landing"></div>
-  <div class="three landing"></div>
-  <div class="four landing"></div>
 </div>

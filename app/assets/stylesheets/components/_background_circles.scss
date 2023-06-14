@@ -5,7 +5,7 @@
     opacity: 75%;
     width: 50vh;
     height: 50vh;
-    z-index: -1;
+    z-index: -10;
     background-color:#EDFCFB;
     &.landing {
       top: -25vh;
@@ -17,6 +17,7 @@
       &.moved {
         top: -25vh;
         left: -25vh;
+        z-index: 20;
       }
     }
     &.progress {
@@ -25,6 +26,7 @@
       &.moved {
         top: -25vh;
         left: -25vh;
+        z-index: 20;
       }
     }
   }
@@ -35,7 +37,7 @@
     opacity: 50%;
     width: 100vh;
     height: 100vh;
-    z-index: -3;
+    z-index: -11;
     background-color:#EDFCFB;
     &.landing {
       top: -50vh;
@@ -47,6 +49,7 @@
       &.moved {
         top: -50vh;
         left: -50vh;
+        z-index: 19;
       }
     }
     &.progress {
@@ -55,6 +58,7 @@
       &.moved {
         top: -50vh;
         left: -50vh;
+        z-index: 19;
       }
     }
   }
@@ -65,7 +69,7 @@
     opacity: 25%;
     width: 150vh;
     height: 150vh;
-    z-index: -4;
+    z-index: -12;
     background-color:#EDFCFB;
     &.landing {
       top: -75vh;
@@ -77,14 +81,16 @@
       &.moved {
         top: -75vh;
         left: -75vh;
+        z-index: 18;
       }
     }
     &.progress {
       bottom: -75vh;
       left: -75vh;
-      &.moved3 {
+      &.moved {
         top: -75vh;
         left: -75vh;
+        z-index: 18;
       }
     }
   }
@@ -95,7 +101,7 @@
     opacity: 10%;
     width: 200vh;
     height: 200vh;
-    z-index: -5;
+    z-index: -13;
     background-color:#EDFCFB;
     &.landing {
       top: -100vh;
@@ -107,6 +113,7 @@
       &.moved {
         top: -100vh;
         left: -100vh;
+        z-index: 17;
       }
     }
     &.progress {
@@ -115,6 +122,7 @@
       &.moved4 {
         top: -100vh;
         left: -100vh;
+        z-index: 17;
       }
     }
   }

@@ -9,7 +9,7 @@ export default class extends Controller {
     if (this.loggedInValue) {
       this.option1Target.classList.toggle("hidden");
       this.option2Target.classList.toggle("hidden");
-      this.option3Target.classList.toggle("hidden");
+      if (this.hasOption3Target) this.option3Target.classList.toggle("hidden");
 
       this.circle1Target.classList.toggle("moved");
       this.circle2Target.classList.toggle("moved");
@@ -19,12 +19,11 @@ export default class extends Controller {
   }
 
   hideMenu(event) {
-    console.log(event.target)
-    if (event.target.closest(".navbar") == null) {
+    if (event.target.closest(".navbar") == null || event.target.classList.contains("navbar")) {
       this.threeBarsTarget.classList.remove("hidden");
       this.option1Target.classList.add("hidden");
       this.option2Target.classList.add("hidden");
-      this.option3Target.classList.add("hidden");
+      if (this.hasOption3Target) this.option3Target.classList.add("hidden");
 
       this.circle1Target.classList.remove("moved");
       this.circle2Target.classList.remove("moved");

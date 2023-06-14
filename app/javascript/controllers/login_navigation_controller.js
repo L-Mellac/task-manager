@@ -3,11 +3,14 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="hotdog-navigation"
 export default class extends Controller {
   static targets = ["threeBars", "loginLink", "signupLink", "loginForm", "signupForm", "circle1", "circle2", "circle3", "circle4"];
+  static values = { loggedIn: Boolean };
 
   toggleMenu() {
-    this.threeBarsTarget.classList.toggle("hidden");
-    this.loginLinkTarget.classList.toggle("hidden");
-    this.signupLinkTarget.classList.toggle("hidden");
+    if (!this.loggedInValue) {
+      this.threeBarsTarget.classList.toggle("hidden");
+      this.loginLinkTarget.classList.toggle("hidden");
+      this.signupLinkTarget.classList.toggle("hidden");
+    }
   }
 
   openLoginForm() {
@@ -26,7 +29,7 @@ export default class extends Controller {
   }
 
   closeAll(event) {
-    if (event.target.closest(".navbar") == null) {
+    if (event.target.closest(".navbar") == null || event.target.classList.contains("navbar")) {
       this.threeBarsTarget.classList.remove("hidden");
       this.signupFormTarget.classList.add("hidden");
       this.loginFormTarget.classList.add("hidden");

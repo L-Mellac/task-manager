@@ -9,17 +9,6 @@
   }
 }
 
-@keyframes shadow-pulse-big
-{
-  // 0% {
-  //   box-shadow: 0 0 0 0px rgba(129, 235, 224, 0.5);
-  // }
-  // 100% {
-  //   box-shadow: 0 0 0 55px rgba(129, 235, 224, 0.5);
-  // }
-}
-
-
 #hotdog-menu {
   display: flex;
   flex-direction: column;
@@ -28,6 +17,7 @@
   padding-top: 2em;
   gap: 0.5em;
   rotate: 0deg;
+  z-index: 100;
 
   .bar-top {
     width: 3em;
@@ -48,10 +38,6 @@
     height: 0.5em;
     background-color: $black;
     border-radius: 0.25em;
-  }
-
-  :hover {
-    animation: none;
   }
 
   #pulse {
