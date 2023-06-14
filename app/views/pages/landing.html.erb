@@ -13,17 +13,6 @@
     <a href="/days" class="signed-in-option-2">progress</a>
     <a href="/days/<%= @day.id %>" class="signed-in-option-3">today</a>
 
-    <%# <a class="option-1 hidden d-none"
-      data-hotdog-navigation-login-target="loginLink"
-      data-action="click->hotdog-navigation-login#toggleLogin">
-      log in
-    </a>
-
-    <a class="option-2 hidden d-none"
-      data-hotdog-navigation-login-target="signupLink"
-      >sign up
-    </a> %>
-
   <% else %>
     <a class="option-1 hidden"
       data-hotdog-navigation-login-target="loginLink"
@@ -37,10 +26,13 @@
      </a>
   <% end %>
 
-  <form action="/user/sign_in" method="post" class="login-form hidden" data-hotdog-navigation-login-target="loginForm" data-action="click->hotdog-navigation-login#onInputFocus">
+  <form action="/user/sign_in" method="post" class="login-form hidden" 
+        data-hotdog-navigation-login-target="loginForm" 
+        data-controller="days-generation"
+        data-action="click->hotdog-navigation-login#onInputFocus submit->days-generation#loginAndGenerateMissingDays">
     <h1>log in</h1>
-    <input type="text" placeholder="Username (required)" name="user[email]">
-    <input type="password" placeholder="Password (required)" name="user[password]">
+    <input type="text" placeholder="Username (required)" name="user[email]" data-days-generation-target="username">
+    <input type="password" placeholder="Password (required)" name="user[password]" data-days-generation-target="password">
     <input type="hidden" name="authenticity_token", value="<%= form_authenticity_token %>">
     <input type="submit" value="enter">
   </form>

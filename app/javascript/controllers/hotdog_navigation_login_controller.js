@@ -8,20 +8,11 @@ export default class extends Controller {
     this.threeBarsTarget.classList.toggle("hidden");
     this.loginLinkTarget.classList.toggle("hidden");
     this.signupLinkTarget.classList.toggle("hidden");
-
-    // this.logoutLinkTarget.classList.toggle("hidden");
-    // console.log(this.logoutLinkTarget)
-
-    // this.circle1Target.classList.toggle("moved");
-    // this.circle2Target.classList.toggle("moved");
-    // this.circle3Target.classList.toggle("moved");
-    // this.circle4Target.classList.toggle("moved");
   }
 
   toggleLogin() {
     this.loginFormTarget.classList.toggle("hidden");
     this.threeBarsTarget.classList.toggle("hidden");
-
   }
 
   onInputFocus() {

@@ -1,6 +1,6 @@
-<div class="navbar" data-controller="hotdog-navigation" data-action="click->hotdog-navigation#toggleMenu">
+<div class="navbar" data-controller="hotdog-navigation" data-action="click@window->hotdog-navigation#hideMenu" >
 
-  <div id="hotdog-menu" data-hotdog-navigation-target="threeBars">
+  <div id="hotdog-menu" data-hotdog-navigation-target="threeBars" data-action="click->hotdog-navigation#showMenu">
     <div class="bar-top"></div>
     <div class="bar-long"></div>
     <div class="bar-bottom"></div>
@@ -33,21 +33,19 @@
       </form>
     </div>
 
-
-    <div data-controller="edit">
+    <div class="day-name-and-date" data-controller="reduce-text-size">
       <div id="edit-container" data-edit-target="editbutton">
         <button type="button" class="btn" data-action="click->edit#edit">
           <i id="editIcon" class="fa-regular fa-pen-to-square"></i>
         </button>
       </div>
-
-      <div class="day-name-and-date">
-        <h2><%= Date.parse(@day.created_at.to_s) %></h2>
-        <form action=<%="/days/#{@day.id}"%> method="patch">
-          <input id="edit" data-edit-target="edit" disabled type="text" name="day[name]" value=<%= @day.name.nil? ? "today." : @day.name %>>
-          <input type="hidden" name="authenticity_token", value="<%= form_authenticity_token %>">
-        </form>
-      </div>
+      <form action=<%="/days/#{@day.id}"%> method="patch">
+        <input type="text" name="day[name]" value="<%= @day.name.nil? ? "today." : @day.name %>"
+               data-reduce-text-size-target="input"
+               data-action="keyup->reduce-text-size#reduceTextSize">
+        <input type="hidden" name="authenticity_token", value="<%= form_authenticity_token %>">
+      </form>
+      <h2><%= Date.parse(@day.created_at.to_s) %></h2>
     </div>
 
   </div>

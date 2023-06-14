@@ -8,21 +8,17 @@ Day.destroy_all
 User.destroy_all
 puts "seeds cleaned"
 
-user1 = User.create!(email: "marco@lewagon.com", password: "123456")
-user2 = User.create!(email: "ebi@lewagon.com", password: "123456")
+marco = User.create!(email: "marco@lewagon.com", password: "123456")
 
-Category.create!(name: "Chores", user_id: user1.id)
-Category.create!(name: "Choresss", user_id: user2.id)
+Category.create!(name: "Chores", user_id: marco.id)
 
-file = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg")
-day = Day.create!(created_at: DateTime.parse("2023-05-19 12:00"), user_id: user1.id)
-day.highlight.attach(io: file, filename: "nes.png", content_type: "image/png")
-puts "image seeded"
+test_image = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg")
+day = Day.create!(created_at: DateTime.parse("2023-05-19 12:00"), user_id: marco.id)
+day.highlight.attach(io: test_image, filename: "nes.png", content_type: "image/png")
 
-file = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg")
-day2 = Day.create!(created_at: DateTime.parse("2023-05-19 12:00"), user_id: user1.id)
-day2.highlight.attach(io: file, filename: "nes.png", content_type: "image/png")
-puts "image seeded"
+test_image = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg")
+day2 = Day.create!(created_at: DateTime.parse("2023-05-20 12:00"), user_id: marco.id)
+day2.highlight.attach(io: test_image, filename: "nes.png", content_type: "image/png")
 
 
 # Day.create!(name: "Wild Rave", highlight: "Beer Pong", created_at: DateTime.parse("2023-05-20 12:00"), user_id: 1)

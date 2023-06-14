@@ -18,7 +18,7 @@
       <div class="progress-circle three" data-hotdog-navigation-progress-target="circle3"></div>
       <div class="progress-circle four" data-hotdog-navigation-progress-target="circle4"></div>
     </div>
-    
+
   </div>
 
   <div class="search-bar">
@@ -47,7 +47,9 @@
         <% end %>
 
             <div class="progress-content">
-              <h2 class="progress-title"> <%= Date.parse(day.created_at.to_s) %></h2>
+              <% display_date = Date.parse(day.created_at.to_s)%>
+              <% formatted_date = display_date.strftime('%e %B') %>
+             <h2 class="progress-title"> <%= formatted_date %></h2>
               <p class="progress-copy"><%= day.name %> </p>
               <%= link_to "View Day", day_path(day), class: "progress-btn" %>
             </div>
