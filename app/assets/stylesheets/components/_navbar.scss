@@ -1,7 +1,7 @@
 .navbar {
   height: 15vh;
   display: flex;
-  align-items: start;
+  align-items: center;
   padding-top: 0;
 
   .option-1 {
@@ -32,8 +32,8 @@
     color: $black;
     text-decoration: none;
     position: fixed;
-    top: 0em;
-    left: 10em;
+    top: 6.5em;
+    left: 7.5em;
     z-index: 100;
   }
 }
