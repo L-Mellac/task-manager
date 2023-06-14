@@ -23,6 +23,7 @@ export default class extends Controller {
     .then(response => response.text())
     .then((task) => {
       this.tasksContainerTarget.insertAdjacentHTML('afterbegin', task);
-    })
+    });
+    this.inputFieldTarget.value = "";
   }
 }

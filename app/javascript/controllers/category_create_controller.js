@@ -24,5 +24,6 @@ export default class extends Controller {
     .then((category) => {
       this.element.insertAdjacentHTML('afterbegin', category);
     })
+    this.categoryNameInputFieldTarget.value = "";
   }
 }

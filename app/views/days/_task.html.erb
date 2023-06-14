@@ -10,11 +10,11 @@
        data-category-create-task-id-value=<%=task.id%>>
     
     <% categories.reverse_each do |category| %>
-      <%= render partial: "category", locals: { category: category, task_id: task.id} %>
+      <%= render partial: "days/category", locals: { category: category, task_id: task.id} %>
     <% end %>
 
     <form action=<%="/tasks/#{task.id}"%> method="patch">
-      <button type="submit" class="category-btn" name=task[category_id] data-action="click->task-update#clearCategory">(No Category)</button>
+      <button type="submit" class="category-btn" name=task[category_id] data-action="click->task-update#clearCategory">- clear category</button>
       <input type="hidden" name="authenticity_token", value="<%= form_authenticity_token %>">
     </form>
 

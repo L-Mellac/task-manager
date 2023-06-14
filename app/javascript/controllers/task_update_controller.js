@@ -19,11 +19,13 @@ export default class extends Controller {
     const color = event.target.style.color;
     this.categoryBoxTarget.style.backgroundColor = color;
     this.categoryBoxTarget.innerText = name[0];
+    this.categoriesPopupTarget.classList.add("hidden");
   }
 
   clearCategory() {
     this.categoryBoxTarget.style.backgroundColor = '';
     this.categoryBoxTarget.innerText = '';
+    this.categoriesPopupTarget.classList.add("hidden");
   }
 
   showPopups() {
