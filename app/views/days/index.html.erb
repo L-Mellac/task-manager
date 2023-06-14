@@ -13,7 +13,7 @@
     </div>
 
     <a href="/days/<%= Day.last.id %>" class="option-1 hidden" data-hotdog-navigation-target="option1">today</a>
-    <a class="option-2 hidden" data-hotdog-navigation-target="option2">customize</a>
+    <a href="/" class="option-2 hidden" data-hotdog-navigation-target="option2">home</a>
 
 
     <div class="bg-circles">
@@ -28,7 +28,7 @@
     <%= text_field_tag :query,
       params[:query],
       class: "form-control",
-      placeholder: "Search"
+      placeholder: "Search for tasks or dates"
     %>
     <%= submit_tag "Search", class: "btn btn-primary" %>
     <% end %>

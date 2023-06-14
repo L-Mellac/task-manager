@@ -16,8 +16,8 @@
 
   <% if user_signed_in? %>
     <a href="/days" class="option-1 hidden" data-hotdog-navigation-target="option1">progress</a>
-    <a href="/days/<%= @day.id %>" class="option-2 hidden" data-hotdog-navigation-target="option2">today</a>
-    <%= link_to 'Log out', destroy_user_session_path, data: { turbo_method: :delete, hotdog_navigation_target: 'option3' }, class: 'option-3 hidden' %>
+    <a href="/days/<%= @day.id %>" class="option-3 hidden" data-hotdog-navigation-target="option2">today</a>
+    <%= link_to 'log out', destroy_user_session_path, data: { turbo_method: :delete, hotdog_navigation_target: 'option3' }, class: 'option-2 hidden' %>
   <% else %>
     <a class="option-1 hidden"
       data-login-navigation-target="loginLink"

@@ -1,10 +1,8 @@
 .search-bar {
-  float: right;
-
 
 
   .form-control {
-    // width: 30%;
+    width: 14em;
   }
 
   .btn {
@@ -17,7 +15,7 @@
   display: flex;
   justify-content: center;
   text-align: center;
-  
+
   .cards a {
     text-decoration: none;
     color: white;
