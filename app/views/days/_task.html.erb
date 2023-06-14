@@ -4,39 +4,26 @@
       data-task-update-task-priority-value=<%= task.priority %>
       data-action="mouseover->task-update#showPopups mouseout->task-update#hidePopups">
 
-  <div class="categories-menu hidden" data-task-update-target="categoriesPopup">
+  <div class="categories-menu hidden" 
+       data-task-update-target="categoriesPopup" 
+       data-controller="category-create" 
+       data-category-create-task-id-value=<%=task.id%>>
+    
     <% categories.each do |category| %>
-
-      <div class="category-btn-and-color-popup"
-           data-controller="category-color"
-           data-category-color-category-id-value=<%= category.id %>>
-        <form action=<%="/tasks/#{task.id}"%> method="patch">
-          <button type="submit" class="category-btn" name=task[category_id] value=<%= category.id %>
-                  style="color: <%= category.color if category.color.present? %>"
-                  data-action="mouseover->category-color#showColorPopup mouseout->category-color#hideColorPopup click->task-update#updateCategoryBoxColor"
-                  data-category-color-target="categoryName">
-                  <%= category.name %></button>
-          <input type="hidden" name="authenticity_token", value="<%= form_authenticity_token %>">
-        </form>
-
-        <div class="category-color-popup btn-hidden"
-             data-category-color-target="colorSelectorPopup">
-          <i class="fa-solid fa-palette category-color-btn"></i>
-          <input type="color" name="category[color]" class="category-color-picker"
-                  data-category-color-target="colorPickerInput"
-                  data-action="change->category-color#submitColorChange">
-        </div>
-      </div>
+      <%= render partial: "category", locals: { category: category, task_id: task.id} %>
     <% end %>
+
     <form action=<%="/tasks/#{task.id}"%> method="patch">
       <button type="submit" class="category-btn" name=task[category_id] data-action="click->task-update#clearCategory">(No Category)</button>
       <input type="hidden" name="authenticity_token", value="<%= form_authenticity_token %>">
     </form>
-    <form action="/categories" method="post">
-      <input type="text" placeholder="+ new category" name="category[name]">
+
+    <form action="/categories" method="post" data-action="submit->category-create#newCategory">
+      <input type="text" placeholder="+ new category" name="category[name]" data-category-create-target="categoryNameInputField">
       <input type="hidden" name="day" value="<%=day.id%>">
       <input type="hidden" name="authenticity_token", value="<%= form_authenticity_token %>">
     </form>
+
   </div>
 
   <form action=<%="/tasks/#{task.id}"%> method="patch">
