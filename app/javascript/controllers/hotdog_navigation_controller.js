@@ -7,7 +7,7 @@ export default class extends Controller {
   showMenu() {
     this.threeBarsTarget.classList.toggle("hidden");
     this.progressLinkTarget.classList.toggle("hidden");
-    this.customizeLinkTarget.classList.toggle("hidden");
+    // this.customizeLinkTarget.classList.toggle("hidden");
 
     this.circle1Target.classList.toggle("moved");
     this.circle2Target.classList.toggle("moved");
@@ -20,7 +20,7 @@ export default class extends Controller {
     if (event.target.id != "hotdog-menu" && event.target.parentElement.id != "hotdog-menu") {
       this.threeBarsTarget.classList.remove("hidden");
       this.progressLinkTarget.classList.add("hidden");
-      this.customizeLinkTarget.classList.add("hidden");
+      // this.customizeLinkTarget.classList.add("hidden");
 
       this.circle1Target.classList.remove("moved");
       this.circle2Target.classList.remove("moved");
