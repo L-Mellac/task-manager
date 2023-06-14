@@ -34,6 +34,11 @@
     </div>
 
     <div class="day-name-and-date" data-controller="reduce-text-size">
+      <div id="edit-container" data-edit-target="editbutton">
+        <button type="button" class="btn" data-action="click->edit#edit">
+          <i id="editIcon" class="fa-regular fa-pen-to-square"></i>
+        </button>
+      </div>
       <form action=<%="/days/#{@day.id}"%> method="patch">
         <input type="text" name="day[name]" value="<%= @day.name.nil? ? "today." : @day.name %>"
                data-reduce-text-size-target="input"
@@ -42,6 +47,7 @@
       </form>
       <h2><%= Date.parse(@day.created_at.to_s) %></h2>
     </div>
+
   </div>
 
   <div class="tasks-and-new-container"
