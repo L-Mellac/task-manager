@@ -1,7 +1,16 @@
 <!DOCTYPE html>
 <html>
+
   <head>
-    <title>TaskManager</title>
+    <% if controller_name == "days" && action_name == "show" %>
+    <title>focus. today</title>
+    <% elsif controller_name == "days" && action_name == "index" %>
+    <title>focus. progress</title>
+    <% else %>
+    <title>focus.</title>
+    <% end %>
+
+    <meta name="description" content="a simple & fun task manager to customise">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -16,4 +25,5 @@
     <%= render "shared/flashes" %>
     <%= yield %>
   </body>
+
 </html>
