@@ -56,6 +56,17 @@
   }
 }
 
+.btn-hidden {
+  opacity: 0;
+  transition: opacity 1s ease;
+  transition-delay: 1s;
+}
+
+.btn-active {
+  opacity: 1;
+  transition: opacity 1s ease;
+}
+
 .hidden {
   display: none !important;
 }
@@ -167,7 +178,7 @@
   }
 }
 
-.categories {
+.categories-menu {
   position: absolute;
   left: -9em;
   top: -50%;
@@ -184,6 +195,37 @@
     background-color: $transparent;
     border: none;
   }
+
+  .category-btn-and-color-popup {
+    position: relative;
+
+    .category-btn {
+      background-color: $transparent;
+      border: none;
+    }
+
+    .category-color-popup {
+      position: absolute;
+      left: -1.25em;
+      top: 0.5em;
+      width: 1em;
+      height: 1em;
+
+      i {
+        position: absolute;
+        width: 1em;
+        height: 1em;
+      }
+      .category-color-picker {
+        opacity: 0;;
+        width: 1em;
+        height: 1em;
+        z-index: 5;
+        position: absolute;
+        cursor: pointer;
+      }
+    }
+  }
 }
 
 .task {
@@ -195,6 +237,16 @@
   border-radius: 0.6em;
   padding: 0.5em;
   position: relative;
+
+  .stars {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.5em;
+    position: absolute;
+    top: 0.5em;
+    right: 6em;
+  }
 
   form {
     display: flex;

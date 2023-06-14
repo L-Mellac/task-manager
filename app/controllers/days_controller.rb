@@ -8,12 +8,14 @@ class DaysController < ApplicationController
     missing_days.times do |i|
       Day.create!(user_id: current_user.id, created_at: Date.today - missing_days + i + 1)
     end
+
+    respond_to do |format|
+      format.text { render plain: current_user.days.last.id.to_s }
+    end
   end
 
   def index
-    create
     @days = current_user.days.order(created_at: :desc)
-    # @categories = Category.find(params[:id])
     if params[:query].present?
       @days = Day.global_search(params[:query])
     else

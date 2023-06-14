@@ -1,13 +1,31 @@
 <div class="task"
       data-controller="task-update"
       data-task-update-task-id-value=<%= task.id %>
-      data-action="mouseover->task-update#togglePopups mouseout->task-update#togglePopups">
-  <div class="categories hidden" data-task-update-target="categoriesPopup">
+      data-action="mouseover->task-update#showPopups mouseout->task-update#hidePopups">
+
+  <div class="categories-menu hidden" data-task-update-target="categoriesPopup">
     <% categories.each do |category| %>
-      <form action=<%="/tasks/#{task.id}"%> method="patch">
-        <button type="submit" class="category-btn" name=task[category_id] value=<%= category.id %> style="color: <%= category.color if category.color.present? %>"><%= category.name %></button>
-        <input type="hidden" name="authenticity_token", value="<%= form_authenticity_token %>">
-      </form>
+
+      <div class="category-btn-and-color-popup"
+           data-controller="category-color"
+           data-category-color-category-id-value=<%= category.id %>>
+        <form action=<%="/tasks/#{task.id}"%> method="patch">
+          <button type="submit" class="category-btn" name=task[category_id] value=<%= category.id %>
+                  style="color: <%= category.color if category.color.present? %>"
+                  data-action="mouseover->category-color#showColorPopup mouseout->category-color#hideColorPopup"
+                  data-category-color-target="categoryName">
+                  <%= category.name %></button>
+          <input type="hidden" name="authenticity_token", value="<%= form_authenticity_token %>">
+        </form>
+
+        <div class="category-color-popup btn-hidden"
+             data-category-color-target="colorSelectorPopup">
+          <i class="fa-solid fa-palette category-color-btn"></i>
+          <input type="color" name="category[color]" class="category-color-picker"
+                  data-category-color-target="colorPickerInput"
+                  data-action="change->category-color#submitColorChange">
+        </div>
+      </div>
     <% end %>
     <form action=<%="/tasks/#{task.id}"%> method="patch">
       <button type="submit" class="category-btn" name=task[category_id] value=<%= nil %>>(No Category)</button>
@@ -30,15 +48,21 @@
     <input type="hidden" name="authenticity_token", value="<%= form_authenticity_token %>">
   </form>
 
-  <i class="fa-solid fa-circle-xmark delete-btn hidden"
+  <div class="stars">
+    <% (task.priority - 1).times do %>
+      <i class="fa-solid fa-star"></i>
+    <% end %>
+  </div>
+
+  <i class="fa-solid fa-circle-xmark delete-btn btn-hidden"
       data-task-update-target="deleteButton"
       data-action="click->task-update#deleteTask"></i>
 
   <div class="update-priority-button">
 
-    <i class="fa-solid fa-circle-exclamation hidden"
+    <i class="fa-solid fa-circle-exclamation btn-hidden"
        data-task-update-target="priorityButton"
-       data-action="click->task-update#togglePrioritySelector"></i>
+       data-action="click->task-update#showPrioritySelector"></i>
 
     <div class="priority-options hidden"
          data-task-update-target="prioritySelector">
