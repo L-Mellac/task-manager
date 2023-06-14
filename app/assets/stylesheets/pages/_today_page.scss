@@ -123,7 +123,7 @@
 .day-name-and-date {
   position: relative;
   font-family: $headers-font;
-  width: 80%;
+  width: 100%;
   float: left;
 
   input[type=text] {
@@ -133,6 +133,7 @@
     border: none;
     color: $black;
     width: 100%;
+    padding-left: 1rem;
     &:focus {
       outline: none;
     }
@@ -142,6 +143,18 @@
     font-size: 2em;
     color: $black;
     line-height: 0;
+  }
+
+  .name-and-edit-icon {
+    position: relative;
+
+    #dayEditIcon {
+      cursor: pointer;
+      font-size: 2em;
+      position: absolute;
+      left: -1rem;
+      top: 50%;
+    }
   }
 }
 

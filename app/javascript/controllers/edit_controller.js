@@ -2,10 +2,10 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
 
-  static targets = [ "edit", "editbutton" ]
+  static targets = [ "dayNameInput", "editIcon" ]
 
   edit() {
-    this.editTarget.disabled = false;
-    this.editbuttonTarget.style.display ="none";
+    this.dayNameInputTarget.disabled = false;
+    this.editIconTarget.style.display ="none";
   }
 }
