@@ -1,6 +1,7 @@
 <div class="task"
       data-controller="task-update"
       data-task-update-task-id-value=<%= task.id %>
+      data-task-update-task-priority-value=<%= task.priority %>
       data-action="mouseover->task-update#showPopups mouseout->task-update#hidePopups">
 
   <div class="categories-menu hidden" data-task-update-target="categoriesPopup">
@@ -43,8 +44,8 @@
 
     <input type="text" name="task[description]" value="<%=task.description%>">
 
-    <button type="submit" name="task[completed]" class="checkmark <%= 'done' if task.completed? %>" value=<%= !task.completed? %>>
-
+    <button type="submit" name="task[completed]" class="checkmark <%= 'done' if task.completed? %>" value=<%= !task.completed? %>
+            data-task-update-target="checkmark">
       <% if task.completed? %>
         <i class="fa-solid fa-check"></i>
       <% end %>
@@ -53,12 +54,6 @@
 
     <input type="hidden" name="authenticity_token", value="<%= form_authenticity_token %>">
   </form>
-
-  <div class="stars">
-    <% (task.priority - 1).times do %>
-      <i class="fa-solid fa-star"></i>
-    <% end %>
-  </div>
 
   <i class="fa-solid fa-circle-xmark delete-btn btn-hidden"
       data-task-update-target="deleteButton"
@@ -75,8 +70,6 @@
       <span data-action="click->task-update#updatePriority">1</span>
       <span data-action="click->task-update#updatePriority">2</span>
       <span data-action="click->task-update#updatePriority">3</span>
-      <span data-action="click->task-update#updatePriority">4</span>
-      <span data-action="click->task-update#updatePriority">5</span>
     </div>
 
   </div>
