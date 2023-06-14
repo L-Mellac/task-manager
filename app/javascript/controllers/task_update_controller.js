@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="task-update"
 export default class extends Controller {
-  static targets = ["categoriesPopup", "deleteButton", "checkmark", "priorityButton", "prioritySelector"];
+  static targets = ["categoriesPopup", "deleteButton", "checkmark", "priorityButton", "prioritySelector", "categoryBox"];
   static values = { taskId: Number, taskPriority: Number };
 
   connect() {
@@ -12,6 +12,18 @@ export default class extends Controller {
 
   toggleCategoriesPopup() {
     this.categoriesPopupTarget.classList.toggle("hidden");
+  }
+
+  updateCategoryBoxColor(event) {
+    const name = event.target.innerText;
+    const color = event.target.style.color;
+    this.categoryBoxTarget.style.backgroundColor = color;
+    this.categoryBoxTarget.innerText = name[0];
+  }
+
+  clearCategory() {
+    this.categoryBoxTarget.style.backgroundColor = '';
+    this.categoryBoxTarget.innerText = '';
   }
 
   showPopups() {

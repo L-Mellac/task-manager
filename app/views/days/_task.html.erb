@@ -13,7 +13,7 @@
         <form action=<%="/tasks/#{task.id}"%> method="patch">
           <button type="submit" class="category-btn" name=task[category_id] value=<%= category.id %>
                   style="color: <%= category.color if category.color.present? %>"
-                  data-action="mouseover->category-color#showColorPopup mouseout->category-color#hideColorPopup"
+                  data-action="mouseover->category-color#showColorPopup mouseout->category-color#hideColorPopup click->task-update#updateCategoryBoxColor"
                   data-category-color-target="categoryName">
                   <%= category.name %></button>
           <input type="hidden" name="authenticity_token", value="<%= form_authenticity_token %>">
@@ -29,7 +29,7 @@
       </div>
     <% end %>
     <form action=<%="/tasks/#{task.id}"%> method="patch">
-      <button type="submit" class="category-btn" name=task[category_id] value=<%= nil %>>(No Category)</button>
+      <button type="submit" class="category-btn" name=task[category_id] data-action="click->task-update#clearCategory">(No Category)</button>
       <input type="hidden" name="authenticity_token", value="<%= form_authenticity_token %>">
     </form>
     <form action="/categories" method="post">
@@ -40,7 +40,11 @@
   </div>
 
   <form action=<%="/tasks/#{task.id}"%> method="patch">
-    <div class="category" data-action="click->task-update#toggleCategoriesPopup" style="background-color: <%= task.category.color if task.category.present? && task.category.color.present? %>"><%= task.category.name.first unless task.category.nil? %></div>
+    <div class="category" style="background-color: <%= task.category.color if task.category.present? && task.category.color.present? %>"
+         data-action="click->task-update#toggleCategoriesPopup"
+         data-task-update-target="categoryBox">
+      <%= task.category.name.first unless task.category.nil? %>
+    </div>
 
     <input type="text" name="task[description]" value="<%=task.description%>">
 
