@@ -40,10 +40,6 @@
 
     <div class="day-name-and-date" data-controller="reduce-text-size edit">
       <div class="name-and-edit-icon">
-        <%# <i id="dayEditIcon" class="fa-regular fa-pen-to-square"
-          data-edit-target="editIcon"
-          data-action="click->edit#edit"></i> %>
-
         <form action=<%="/days/#{@day.id}"%> method="patch">
           <input id="name-input" type="text" name="day[name]" value="<%= @day.name.nil? ? "today." : @day.name %>"
                 data-reduce-text-size-target="input"
@@ -53,7 +49,7 @@
         </form>
       </div>
 
-      <h2><%= Date.parse(@day.created_at.to_s) %></h2>
+      <h2><%= (@day.created_at).strftime('%e %B %Y') %></h2>
     </div>
 
   </div>
