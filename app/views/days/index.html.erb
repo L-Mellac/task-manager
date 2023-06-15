@@ -42,8 +42,9 @@
     <div class="cards">
 
       <% @days.each do |day| %>
+
         <% if day.highlight.present? %>
-          <div class="progress-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path day.highlight.key, height: 300, crop: :fill %>')">
+          <div class="progress-card" id=<%= "pulse-progress" if day == current_user.days.last %> style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path day.highlight.key, height: 300, crop: :fill %>')">
         <% else %>
           <div class ="progress-card" style="background-color: #81EBE0;">
         <% end %>
