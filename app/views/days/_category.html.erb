@@ -1,10 +1,10 @@
 <div class="category-btn-and-color-popup"
            data-controller="category-color"
-           data-category-color-category-id-value=<%= category.id %>>
+           data-category-color-category-id-value=<%= category.id %>
+           data-action="mouseover->category-color#showColorPopup mouseout->category-color#hideColorPopup click->task-update#updateCategoryBoxColor">
     <form action=<%="/tasks/#{task_id}"%> method="patch">
         <button type="submit" class="category-btn" name=task[category_id] value=<%= category.id %>
                 style="color: <%= category.color if category.color.present? %>"
-                data-action="mouseover->category-color#showColorPopup mouseout->category-color#hideColorPopup click->task-update#updateCategoryBoxColor"
                 data-category-color-target="categoryName">
                 <%= category.name %></button>
         <input type="hidden" name="authenticity_token", value="<%= form_authenticity_token %>">

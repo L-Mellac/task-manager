@@ -1,12 +1,11 @@
 .btn-hidden {
   opacity: 0;
-  transition: opacity 1s ease;
-  transition-delay: 1s;
+  transition: opacity 0.5s ease;
 }
 
 .btn-active {
   opacity: 1;
-  transition: opacity 1s ease;
+  transition: opacity 0.5s ease;
 }
 
 .hidden {
