@@ -1,5 +1,5 @@
 <div class="navbar"
-     data-controller="login-navigation hotdog-navigation"
+     data-controller="login-navigation hotdog-navigation days-generation"
      data-hotdog-navigation-logged-in-value=<%= user_signed_in? %>
      data-action="click@window->login-navigation#closeAll click@window->hotdog-navigation#hideMenu">
 
@@ -34,7 +34,6 @@
 
   <form action="/user/sign_in" method="post" class="login-form hidden"
         data-login-navigation-target="loginForm"
-        data-controller="days-generation"
         data-action="submit->days-generation#loginAndGenerateMissingDays">
     <h1>log in</h1>
     <input type="text" placeholder="Username (required)" name="user[email]" data-days-generation-target="username">
@@ -44,10 +43,11 @@
   </form>
 
   <form action="" method="get" class="signup-form hidden"
-        data-login-navigation-target="signupForm">
+        data-login-navigation-target="signupForm"
+        data-action="submit->days-generation#signupAndGenerateMissingDays">
     <h1>sign up</h1>
-    <input type="text" placeholder="Email (required)">
-    <input type="password" placeholder="Password (required)">
+    <input type="text" placeholder="Email (required)" data-days-generation-target="emailSignup">
+    <input type="password" placeholder="Password (required)" data-days-generation-target="passwordSignup">
     <input type="submit" value="enter">
   </form>
 
