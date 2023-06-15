@@ -2,6 +2,9 @@ class DaysController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:create]
   def create
     all_days = current_user.days
+    if current_user.days.empty?
+      Day.create!(user_id: current_user.id, created_at: Date.today, day_date: Date.today.strftime("%A %e %B %Y"))
+    end
     last_day = DateTime.parse(all_days.last.created_at.to_s)
 
     missing_days = (DateTime.now - last_day).to_i
