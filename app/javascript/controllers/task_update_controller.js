@@ -14,6 +14,12 @@ export default class extends Controller {
     this.categoriesPopupTarget.classList.toggle("hidden");
   }
 
+  hideCategoriesPopup(event) {
+    if (event.target.closest(".categories-menu") == null && !event.target.classList.contains("category"))  {
+      this.categoriesPopupTarget.classList.add("hidden");
+    }
+  }
+
   updateCategoryBoxColor(event) {
     const name = event.target.innerText;
     const color = event.target.style.color;

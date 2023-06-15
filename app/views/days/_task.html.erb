@@ -4,11 +4,12 @@
       data-task-update-task-priority-value=<%= task.priority %>
       data-action="mouseover->task-update#showPopups mouseout->task-update#hidePopups">
 
-  <div class="categories-menu hidden" 
-       data-task-update-target="categoriesPopup" 
-       data-controller="category-create" 
+  <div class="categories-menu hidden"
+       data-task-update-target="categoriesPopup"
+       data-controller="category-create"
+       data-action="click@window->task-update#hideCategoriesPopup"
        data-category-create-task-id-value=<%=task.id%>>
-    
+
     <% categories.reverse_each do |category| %>
       <%= render partial: "days/category", locals: { category: category, task_id: task.id} %>
     <% end %>
