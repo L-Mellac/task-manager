@@ -123,9 +123,14 @@
   background-color: $transparent;
   border: none;
   color: $black;
-  border-bottom: 1px solid $black;
   font-size: 3em;
-  width: 12em;
+  width: 100%;
+  text-decoration: underline;
+
+  &::placeholder {
+    text-decoration: underline;
+  }
+
   &:focus {
     outline: none;
   }
