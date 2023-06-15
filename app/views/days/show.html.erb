@@ -40,12 +40,12 @@
 
     <div class="day-name-and-date" data-controller="reduce-text-size edit">
       <div class="name-and-edit-icon">
-        <i id="dayEditIcon" class="fa-regular fa-pen-to-square"
+        <%# <i id="dayEditIcon" class="fa-regular fa-pen-to-square"
           data-edit-target="editIcon"
-          data-action="click->edit#edit"></i>
+          data-action="click->edit#edit"></i> %>
 
         <form action=<%="/days/#{@day.id}"%> method="patch">
-          <input type="text" name="day[name]" disabled value="<%= @day.name.nil? ? "today." : @day.name %>"
+          <input id="name-input" type="text" name="day[name]" value="<%= @day.name.nil? ? "today." : @day.name %>"
                 data-reduce-text-size-target="input"
                 data-edit-target="dayNameInput"
                 data-action="keyup->reduce-text-size#reduceTextSize">

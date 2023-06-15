@@ -75,7 +75,7 @@
     border: none;
     color: $black;
     width: 100%;
-    padding-left: 1rem;
+    padding-left: 0rem;
     &:focus {
       outline: none;
     }
@@ -85,6 +85,10 @@
     font-size: 2em;
     color: $black;
     line-height: 0;
+  }
+
+  #name-input {
+    cursor: pointer;
   }
 
   .name-and-edit-icon {
@@ -97,6 +101,7 @@
       left: -1rem;
       top: 50%;
     }
+
   }
 }
 
@@ -224,6 +229,11 @@
     margin-left: 0.5em;
     border: none;
     color: $black;
+    width: 50%;
+    &:focus {
+      outline: none;
+      border-bottom: 0.1em solid $turquoise_shade;
+    }
   }
 
   .checkmark {
@@ -234,6 +244,7 @@
     border-radius: 50%;
     width: 2em;
     height: 2em;
+    margin-left: 20%;
 
     &.done {
       background-color: $transparent;
