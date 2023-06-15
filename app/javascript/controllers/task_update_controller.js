@@ -82,6 +82,8 @@ export default class extends Controller {
   completeTask() {
     this.checkmarkTarget.classList.toggle("done");
     if (this.checkmarkTarget.classList.contains("done")) {
+      const audio = new Audio('https://cdn.pixabay.com/download/audio/2021/08/04/audio_bb630cc098.mp3');
+      audio.play();
       this.checkmarkTarget.innerHTML = '<i class="fas fa-check"></i>';
     } else {
       this.checkmarkTarget.innerHTML = '';
