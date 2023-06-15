@@ -97,23 +97,6 @@
     color: $black;
     line-height: 0;
   }
-
-  #name-input {
-    cursor: pointer;
-  }
-
-  .name-and-edit-icon {
-    position: relative;
-
-    #dayEditIcon {
-      cursor: pointer;
-      font-size: 2em;
-      position: absolute;
-      left: -1rem;
-      top: 50%;
-    }
-
-  }
 }
 
 .tasks-and-new-container {
@@ -232,9 +215,12 @@
     border: none;
     color: $black;
     width: 50%;
+    &:hover {
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+    }
     &:focus {
       outline: none;
-      border-bottom: 0.1em solid $turquoise_shade;
     }
   }
 

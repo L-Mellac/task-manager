@@ -39,15 +39,13 @@
     </div>
 
     <div class="day-name-and-date" data-controller="reduce-text-size edit">
-      <div class="name-and-edit-icon">
-        <form action=<%="/days/#{@day.id}"%> method="patch">
-          <input id="name-input" type="text" name="day[name]" value="<%= @day.name.nil? ? "today." : @day.name %>"
-                data-reduce-text-size-target="input"
-                data-edit-target="dayNameInput"
-                data-action="keyup->reduce-text-size#reduceTextSize">
-          <input type="hidden" name="authenticity_token", value="<%= form_authenticity_token %>">
-        </form>
-      </div>
+      <form action=<%="/days/#{@day.id}"%> method="patch">
+        <input id="name-input" type="text" name="day[name]" value="<%= @day.name.nil? ? "today." : @day.name %>"
+              data-reduce-text-size-target="input"
+              data-edit-target="dayNameInput"
+              data-action="keyup->reduce-text-size#reduceTextSize">
+        <input type="hidden" name="authenticity_token", value="<%= form_authenticity_token %>">
+      </form>
 
       <h2><%= (@day.created_at).strftime('%e %B %Y') %></h2>
     </div>
