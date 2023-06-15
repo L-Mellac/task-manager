@@ -82,10 +82,11 @@
     color: $black;
     width: 100%;
     padding-left: 0rem;
+    height: 160px;
+
     &:hover {
       text-decoration: underline;
       text-decoration-thickness: 2px;
-
     }
     &:focus {
       outline: none;
