@@ -21,24 +21,23 @@ class DaysController < ApplicationController
     else
       @days = current_user.days.order(created_at: :desc)
     end
-
   end
 
   def show
     @categories = Category.all
     @day = Day.find(params[:id])
     @task = Task.new
-    @tasks = @day.tasks
+    @tasks = @day.tasks.order(priority: :asc)
     @category = Category.new
   end
 
   def update
     @day = Day.find(params[:id])
     @day.update(day_params)
-    redirect_to day_path(@day)
   end
 
   private
+
   def day_params
     params.require(:day).permit(:highlight, :name)
   end

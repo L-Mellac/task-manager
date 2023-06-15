@@ -28,6 +28,8 @@ export default class extends Controller {
         ...this.csrfHeader,
         'Content-Type': 'application/json'},
       body: JSON.stringify({ category: {color: color} })
-    }).then(this.categoryNameTarget.style.color = color)
+    }).then(() => {
+      this.categoryNameTarget.style.color = color;
+    })
   }
 }

@@ -2,14 +2,12 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.new( name: category_params[:name] )
     @category.user = current_user
-    # @user = User.find(params[:user_id])
-    # @category.user = @user
-    day = Day.find(params[:day].to_i)
-    if @category.save!
-      flash[:alert] = "Category Created!"
-      redirect_to day_path(day)
-    else
-      flash[:alert] = "! Error creating category !"
+    unless @category.save!
+      flash[:alert] = "Error creating category"
+    end
+
+    respond_to do |format|
+      format.text { render partial: 'days/category', locals: { category: @category, task_id: params[:task_id] }, formats: :html}
     end
   end
 
